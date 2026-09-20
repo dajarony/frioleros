@@ -1,30 +1,59 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import AboutFinalCTA from "@components/about/AboutFinalCTA.astro";
+import AboutIdentity from "@components/about/AboutIdentity.astro";
+import AboutPrinciples from "@components/about/AboutPrinciples.astro";
+import AboutStory from "@components/about/AboutStory.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Quiénes somos">
+<BaseLayout
+  title="Quiénes somos"
+  description="Conoce qué es Frioleros, por qué nace el proyecto y cómo quiere conectar estudiantes de refrigeración industrial con oportunidades reales en Canarias."
+>
   <section class="page-hero">
     <div class="shell">
-      <p class="eyebrow">Quiénes somos</p>
+      <p class="eyebrow">Quiénes somos · Por qué existimos</p>
       <h1>Estudiantes hoy. <span>Profesionales del frío mañana.</span></h1>
       <p>
-        Frioleros nace para convertir nuestra formación en una puerta de entrada real
-        al sector de la refrigeración en Canarias.
+        Frioleros nace para hacer visible el talento que se está formando y
+        acercarlo a las empresas que pueden convertir aprendizaje en
+        experiencia real.
       </p>
     </div>
   </section>
 
   <section class="section">
-    <div class="shell narrow">
+    <div class="shell">
+      <AboutIdentity />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
       <SectionHeading
-        eyebrow="Nuestra misión"
-        title="Conectar talento en formación con oportunidades reales."
+        eyebrow="El camino"
+        title="De la formación a la primera oportunidad."
+        text="No queremos saltarnos etapas. Queremos recorrerlas mejor y acercarnos cuanto antes a las personas que conocen el oficio."
       />
-      <p class="body-large">
-        Queremos que las empresas puedan conocernos antes de que termine nuestra formación:
-        ver qué aprendemos, cómo evolucionamos y qué puede aportar cada persona al sector.
-      </p>
+      <AboutStory />
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Cómo queremos hacerlo"
+        title="La forma también importa."
+        text="Estos principios marcan cómo presentamos el proyecto y cómo queremos relacionarnos con el sector."
+      />
+      <AboutPrinciples />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <AboutFinalCTA />
     </div>
   </section>
 </BaseLayout>
