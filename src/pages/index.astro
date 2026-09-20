@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/sections/Hero.astro";
+import OpportunityGrid from "@components/sections/OpportunityGrid.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Una oportunidad puede cambiarlo todo"
+        title="Queremos entrar en la industria para crecer dentro de ella."
+        text="Frioleros conecta estudiantes de refrigeración con empresas que quieran descubrir, formar y contratar nuevo talento."
+      />
+      <OpportunityGrid />
+    </div>
+  </section>
+</BaseLayout>
