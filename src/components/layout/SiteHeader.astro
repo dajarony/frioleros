@@ -8,6 +8,12 @@ const resolveHref = (href: string) => {
   if (href === "/") return base;
   return `${base}${href.replace(/^\//, "")}`;
 };
+
+const normalize = (value: string) =>
+  value.length > 1 ? value.replace(/\/+$/, "") : value;
+
+const isActive = (href: string) =>
+  normalize(currentPath) === normalize(resolveHref(href));
 ---
 
 <header class="site-header">
@@ -24,10 +30,7 @@ const resolveHref = (href: string) => {
       <ul class="nav-list">
         {navigation.map((item) => (
           <li>
-            <a
-              href={resolveHref(item.href)}
-              aria-current={currentPath.endsWith(item.href) ? "page" : undefined}
-            >
+            <a href={resolveHref(item.href)} aria-current={isActive(item.href) ? "page" : undefined}>
               {item.label}
             </a>
           </li>
