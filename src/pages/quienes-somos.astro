@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+---
+
+<BaseLayout title="Quiénes somos">
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Quiénes somos</p>
+      <h1>Estudiantes hoy. <span>Profesionales del frío mañana.</span></h1>
+      <p>
+        Frioleros nace para convertir nuestra formación en una puerta de entrada real
+        al sector de la refrigeración en Canarias.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell narrow">
+      <SectionHeading
+        eyebrow="Nuestra misión"
+        title="Conectar talento en formación con oportunidades reales."
+      />
+      <p class="body-large">
+        Queremos que las empresas puedan conocernos antes de que termine nuestra formación:
+        ver qué aprendemos, cómo evolucionamos y qué puede aportar cada persona al sector.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
