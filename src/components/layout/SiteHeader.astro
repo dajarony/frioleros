@@ -1,0 +1,42 @@
+---
+import { navigation, site } from "@content/site";
+
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+const resolveHref = (href: string) => {
+  if (href === "/") return base;
+  return `${base}${href.replace(/^\//, "")}`;
+};
+---
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href={base} aria-label={`${site.name}, inicio`}>
+      <span class="brand__mark" aria-hidden="true">❄</span>
+      <span>
+        <strong>{site.name}</strong>
+        <small>Estudiantes de refrigeración industrial</small>
+      </span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul class="nav-list">
+        {navigation.map((item) => (
+          <li>
+            <a
+              href={resolveHref(item.href)}
+              aria-current={currentPath.endsWith(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a class="header-cta" href={resolveHref("/empresas-oportunidades/")}>
+      Ofrece una oportunidad
+    </a>
+  </div>
+</header>
