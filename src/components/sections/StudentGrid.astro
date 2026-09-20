@@ -1,0 +1,19 @@
+---
+import { students } from "@content/students";
+---
+
+<div class="card-grid card-grid--students">
+  {students.map((student) => (
+    <article class="student-card">
+      <div class="student-card__image" aria-hidden="true">FR</div>
+      <div class="student-card__body">
+        <p class="student-card__role">{student.role}</p>
+        <h3>{student.name}</h3>
+        <p>{student.location}</p>
+        <ul class="tag-list">
+          {student.skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </div>
+    </article>
+  ))}
+</div>
