@@ -1,0 +1,13 @@
+---
+import { opportunities } from "@content/opportunities";
+---
+
+<div class="card-grid card-grid--three">
+  {opportunities.map((item) => (
+    <article class="feature-card">
+      <span class="feature-card__index">{item.icon}</span>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+    </article>
+  ))}
+</div>
