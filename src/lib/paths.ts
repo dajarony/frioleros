@@ -1,6 +1,16 @@
+const normalizeBase = (base: string) => {
+  if (!base || base === "/") return "/";
+  return `/${base.replace(/^\/+|\/+$/g, "")}/`;
+};
+
 export const withBase = (base: string, href: string) => {
-  if (href === "/") return base;
-  return `${base}${href.replace(/^\//, "")}`;
+  const normalizedBase = normalizeBase(base);
+
+  if (href === "/") {
+    return normalizedBase;
+  }
+
+  return `${normalizedBase}${href.replace(/^\/+/, "")}`;
 };
 
 const normalizePath = (value: string) => {
@@ -16,7 +26,9 @@ export const isCurrentPath = (
   const current = normalizePath(currentPath);
   const target = normalizePath(withBase(base, href));
 
-  if (href === "/") return current === target;
+  if (href === "/") {
+    return current === target;
+  }
 
   return current === target || current.startsWith(`${target}/`);
 };
