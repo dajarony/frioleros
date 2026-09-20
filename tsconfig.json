@@ -7,7 +7,7 @@
       "@content/*": ["src/content/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"]
+      "@domain/*": ["src/types/*"]
     }
   }
 }
