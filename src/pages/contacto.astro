@@ -18,11 +18,16 @@ import { site } from "@content/site";
         <p class="eyebrow">Frioleros</p>
         <h2>El frío nos une.</h2>
         <p>
-          Escríbenos si puedes ofrecer empleo, prácticas, mentoría, formación,
-          una visita técnica o cualquier colaboración útil para el grupo.
+          Si puedes ofrecer empleo, prácticas, mentoría, formación, una visita técnica
+          o cualquier colaboración útil para el grupo, queremos conocerte.
         </p>
       </div>
-      <a class="contact-email" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+
+      {site.contactEmail ? (
+        <a class="contact-email" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      ) : (
+        <p class="contact-email">Canal de contacto del proyecto: pendiente de definir</p>
+      )}
     </div>
   </section>
 </BaseLayout>
