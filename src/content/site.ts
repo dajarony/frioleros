@@ -6,7 +6,7 @@ export const site = {
   description:
     "Estudiantes de refrigeración industrial en Canarias conectando formación, talento y oportunidades reales en el sector del frío.",
   location: "Canarias, España",
-  contactEmail: "frioleros.proyecto@gmail.com",
+  contactEmail: "",
 };
 
 export const navigation: NavItem[] = [
