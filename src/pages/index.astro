@@ -1,21 +1,26 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/sections/Hero.astro";
+import ImpactStrip from "@components/sections/ImpactStrip.astro";
 import OpportunityGrid from "@components/sections/OpportunityGrid.astro";
+import CompanyCallout from "@components/sections/CompanyCallout.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
 ---
 
 <BaseLayout>
   <Hero />
+  <ImpactStrip />
 
-  <section class="section">
+  <section class="section section--light">
     <div class="shell">
       <SectionHeading
-        eyebrow="Una oportunidad puede cambiarlo todo"
-        title="Queremos entrar en la industria para crecer dentro de ella."
-        text="Frioleros conecta estudiantes de refrigeración con empresas que quieran descubrir, formar y contratar nuevo talento."
+        eyebrow="Qué puede aportar una empresa"
+        title="Varias puertas. Un mismo objetivo."
+        text="Frioleros convierte la formación en un punto de encuentro entre estudiantes y empresas que quieran apostar por nuevo talento."
       />
       <OpportunityGrid />
     </div>
   </section>
+
+  <CompanyCallout />
 </BaseLayout>

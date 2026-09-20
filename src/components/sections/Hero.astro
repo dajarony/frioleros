@@ -1,32 +1,56 @@
 ---
 import ButtonLink from "@components/ui/ButtonLink.astro";
-import { site } from "@content/site";
+import BrandLogo from "@components/brand/BrandLogo.astro";
+import { withBase } from "@lib/paths";
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <section class="hero">
+  <div class="hero__ice hero__ice--one" aria-hidden="true"></div>
+  <div class="hero__ice hero__ice--two" aria-hidden="true"></div>
+
   <div class="shell hero__grid">
     <div class="hero__copy">
       <p class="eyebrow">Refrigeración industrial · Canarias</p>
-      <h1>El talento que <span>enfría el futuro.</span></h1>
+
+      <div class="hero__mobile-brand">
+        <BrandLogo compact />
+      </div>
+
+      <h1>
+        El talento que
+        <span>enfría el futuro.</span>
+      </h1>
+
       <p class="hero__lead">
-        Somos estudiantes que buscamos empresas dispuestas a darnos una oportunidad
-        para aprender, trabajar y crecer dentro del sector del frío.
+        Somos estudiantes de refrigeración industrial que buscamos empresas
+        dispuestas a darnos una primera oportunidad para aprender, trabajar
+        y crecer dentro del sector del frío.
       </p>
 
       <div class="hero__actions">
-        <ButtonLink href={`${base}equipo/`}>Conócenos</ButtonLink>
-        <ButtonLink href={`${base}empresas-oportunidades/`} variant="secondary">
+        <ButtonLink href={withBase(base, "/equipo/")}>Conoce al equipo</ButtonLink>
+        <ButtonLink href={withBase(base, "/empresas-oportunidades/")} variant="secondary">
           Ofrece una oportunidad
         </ButtonLink>
       </div>
+
+      <p class="hero__microcopy">
+        Empleo · Prácticas · Mentoría · Visitas técnicas · Formación
+      </p>
     </div>
 
-    <aside class="hero__statement" aria-label="Mensaje Frioleros">
-      <span>FRIOLEROS</span>
-      <strong>{site.tagline}</strong>
-      <p>Formación. Talento. Empleo. Industria.</p>
+    <aside class="hero__panel" aria-label="Objetivo de Frioleros">
+      <div class="hero__panel-topline">Nuestro objetivo</div>
+      <p class="hero__panel-number">01</p>
+      <h2>Entrar. Aprender. Crecer.</h2>
+      <p>
+        Queremos convertir formación en experiencia real y experiencia real
+        en una carrera profesional dentro de la industria.
+      </p>
+      <div class="hero__panel-rule"></div>
+      <p class="hero__panel-signoff">Canarias también enfría talento.</p>
     </aside>
   </div>
 </section>

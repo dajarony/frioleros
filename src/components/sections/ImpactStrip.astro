@@ -1,0 +1,30 @@
+---
+const pillars = [
+  {
+    label: "Formación",
+    text: "Aprender el oficio con práctica, disciplina y seguridad.",
+  },
+  {
+    label: "Industria",
+    text: "Conocer cómo trabajan las empresas y qué necesitan de verdad.",
+  },
+  {
+    label: "Oportunidad",
+    text: "Conseguir esa primera puerta de entrada para demostrar lo que podemos aportar.",
+  },
+];
+---
+
+<section class="impact-strip" aria-label="Pilares de Frioleros">
+  <div class="shell impact-strip__grid">
+    {pillars.map((pillar, index) => (
+      <article>
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <div>
+          <h2>{pillar.label}</h2>
+          <p>{pillar.text}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

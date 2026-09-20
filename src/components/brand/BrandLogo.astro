@@ -1,0 +1,17 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<span class:list={["brand-lockup", compact && "brand-lockup--compact"]}>
+  <span class="brand-lockup__symbol" aria-hidden="true">
+    <span class="brand-lockup__flake">✦</span>
+  </span>
+  <span class="brand-lockup__copy">
+    <strong>Frioleros</strong>
+    {!compact && <small>Estudiantes de refrigeración industrial</small>}
+  </span>
+</span>

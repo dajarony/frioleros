@@ -1,36 +1,27 @@
 ---
+import BrandLogo from "@components/brand/BrandLogo.astro";
+import MobileNavigation from "@components/navigation/MobileNavigation.astro";
 import { navigation, site } from "@content/site";
+import { isCurrentPath, withBase } from "@lib/paths";
 
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
-
-const resolveHref = (href: string) => {
-  if (href === "/") return base;
-  return `${base}${href.replace(/^\//, "")}`;
-};
-
-const normalize = (value: string) =>
-  value.length > 1 ? value.replace(/\/+$/, "") : value;
-
-const isActive = (href: string) =>
-  normalize(currentPath) === normalize(resolveHref(href));
 ---
 
 <header class="site-header">
   <div class="shell site-header__inner">
     <a class="brand" href={base} aria-label={`${site.name}, inicio`}>
-      <span class="brand__mark" aria-hidden="true">❄</span>
-      <span>
-        <strong>{site.name}</strong>
-        <small>Estudiantes de refrigeración industrial</small>
-      </span>
+      <BrandLogo />
     </a>
 
-    <nav aria-label="Navegación principal">
+    <nav class="desktop-nav" aria-label="Navegación principal">
       <ul class="nav-list">
         {navigation.map((item) => (
           <li>
-            <a href={resolveHref(item.href)} aria-current={isActive(item.href) ? "page" : undefined}>
+            <a
+              href={withBase(base, item.href)}
+              aria-current={isCurrentPath(currentPath, base, item.href) ? "page" : undefined}
+            >
               {item.label}
             </a>
           </li>
@@ -38,8 +29,10 @@ const isActive = (href: string) =>
       </ul>
     </nav>
 
-    <a class="header-cta" href={resolveHref("/empresas-oportunidades/")}>
+    <a class="header-cta" href={withBase(base, "/empresas-oportunidades/")}>
       Ofrece una oportunidad
     </a>
+
+    <MobileNavigation />
   </div>
 </header>

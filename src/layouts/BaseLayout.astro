@@ -15,6 +15,9 @@ const {
 } = Astro.props;
 
 const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : Astro.url;
 ---
 
 <!doctype html>
@@ -23,12 +26,28 @@ const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#06121f" />
+    <meta name="theme-color" content="#04111e" />
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
     <title>{pageTitle}</title>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <SiteHeader />
-    <main>
+    <main id="contenido">
       <slot />
     </main>
     <SiteFooter />
