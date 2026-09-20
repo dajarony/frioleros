@@ -21,6 +21,7 @@ const { student } = Astro.props;
 <BaseLayout
   title={student.name}
   description={student.summary}
+  noindex={student.status === "demo"}
 >
   <StudentProfile student={student} />
 </BaseLayout>

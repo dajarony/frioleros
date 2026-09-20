@@ -3,11 +3,20 @@ export const withBase = (base: string, href: string) => {
   return `${base}${href.replace(/^\//, "")}`;
 };
 
-const normalizePath = (value: string) =>
-  value.length > 1 ? value.replace(/\/+$/, "") : value;
+const normalizePath = (value: string) => {
+  const normalized = value.length > 1 ? value.replace(/\/+$/, "") : value;
+  return normalized || "/";
+};
 
 export const isCurrentPath = (
   currentPath: string,
   base: string,
   href: string,
-) => normalizePath(currentPath) === normalizePath(withBase(base, href));
+) => {
+  const current = normalizePath(currentPath);
+  const target = normalizePath(withBase(base, href));
+
+  if (href === "/") return current === target;
+
+  return current === target || current.startsWith(`${target}/`);
+};

@@ -13,26 +13,67 @@ Escaparate profesional para conectar estudiantes de refrigeración industrial en
 - **Static-first para rendimiento, seguridad y mantenimiento**
 - **Preparado para crecer sin reescribir la base**
 
-## Arquitectura prevista
+## Stack
 
-```
+- Astro
+- TypeScript estricto
+- GitHub Pages
+- GitHub Actions para checks, build y deploy
+
+## Estructura
+
+```text
 src/
   components/
+    about/
+    brand/
+    companies/
+    contact/
+    home/
     layout/
     navigation/
     sections/
+    students/
+    training/
     ui/
   content/
   layouts/
+  lib/
   pages/
   styles/
   types/
 public/
-  images/
+  brand/
 .github/
   workflows/
 ```
 
-Stack: **Astro + TypeScript**, salida estática para GitHub Pages.
+## Regla de contenido
 
-El objetivo es mantener la web simple: Inicio, Quiénes somos, Equipo, Formación/Proyectos, Empresas/Oportunidades y Contacto.
+Los datos editables viven en `src/content/`. Los componentes no deben inventar ni duplicar información.
+
+- Alumnos: `src/content/students.ts`
+- Formación y prácticas: `src/content/training.ts`
+- Empresas: `src/content/companies.ts`
+- Contacto: `src/content/contact.ts`
+- Historia del proyecto: `src/content/about.ts`
+
+Los perfiles reales de alumnos se publican solo con autorización. Un perfil con `status: "demo"` se genera para validar el diseño, pero se marca como **noindex** para que los buscadores no lo indexen.
+
+## Añadir una foto de práctica
+
+1. Guarda la imagen optimizada dentro de `public/`.
+2. Añade su ruta en el campo `image` de la práctica correspondiente en `src/content/training.ts`.
+3. No modifiques el componente visual.
+
+## Calidad
+
+Cada push a `main` ejecuta:
+
+```bash
+npm install
+npm run check
+npm run build
+```
+
+Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.
