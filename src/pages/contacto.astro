@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@content/site";
+---
+
+<BaseLayout title="Contacto">
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Contacto</p>
+      <h1>Hablemos de <span>oportunidades.</span></h1>
+      <p>Empresas, profesionales, instituciones y entidades del sector: queremos escucharos.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell contact-panel">
+      <div>
+        <p class="eyebrow">Frioleros</p>
+        <h2>El frío nos une.</h2>
+        <p>
+          Escríbenos si puedes ofrecer empleo, prácticas, mentoría, formación,
+          una visita técnica o cualquier colaboración útil para el grupo.
+        </p>
+      </div>
+      <a class="contact-email" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+    </div>
+  </section>
+</BaseLayout>
