@@ -1,4 +1,4 @@
-import type { Student } from "@types/site";
+import type { Student } from "@domain/site";
 
 export const students: Student[] = [
   {
