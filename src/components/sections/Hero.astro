@@ -14,10 +14,6 @@ const base = import.meta.env.BASE_URL;
     <div class="hero__copy">
       <p class="eyebrow">Refrigeración industrial · Canarias</p>
 
-      <div class="hero__mobile-brand">
-        <BrandLogo compact />
-      </div>
-
       <h1>
         El talento que
         <span>enfría el futuro.</span>
@@ -41,16 +37,36 @@ const base = import.meta.env.BASE_URL;
       </p>
     </div>
 
-    <aside class="hero__panel" aria-label="Objetivo de Frioleros">
-      <div class="hero__panel-topline">Nuestro objetivo</div>
-      <p class="hero__panel-number">01</p>
-      <h2>Entrar. Aprender. Crecer.</h2>
-      <p>
-        Queremos convertir formación en experiencia real y experiencia real
-        en una carrera profesional dentro de la industria.
-      </p>
-      <div class="hero__panel-rule"></div>
-      <p class="hero__panel-signoff">Canarias también enfría talento.</p>
-    </aside>
+    <div class="hero__brand-visual">
+      <BrandLogo mode="hero" />
+      <p>Entrar · Aprender · Crecer</p>
+    </div>
   </div>
 </section>
+
+<style>
+  .hero__brand-visual {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero__brand-visual > p {
+    margin: -1.2rem 0 0;
+    color: #b9d7e9;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1040px) {
+    .hero__brand-visual {
+      width: min(100%, 600px);
+      justify-self: center;
+    }
+  }
+</style>

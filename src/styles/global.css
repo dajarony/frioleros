@@ -107,52 +107,6 @@ h3 {
   text-decoration: none;
 }
 
-.brand-lockup {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.72rem;
-}
-
-.brand-lockup__symbol {
-  position: relative;
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid var(--line-strong);
-  background:
-    linear-gradient(145deg, rgba(43, 193, 255, 0.18), transparent),
-    #06192a;
-  transform: rotate(45deg);
-}
-
-.brand-lockup__flake {
-  color: var(--ice);
-  font-size: 1.15rem;
-  transform: rotate(-45deg);
-}
-
-.brand-lockup__copy strong {
-  display: block;
-  font-size: 1.55rem;
-  line-height: 0.92;
-  letter-spacing: 0.02em;
-}
-
-.brand-lockup__copy small {
-  display: block;
-  margin-top: 0.22rem;
-  color: var(--muted);
-  font-size: 0.58rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.brand-lockup--compact .brand-lockup__symbol {
-  width: 34px;
-  height: 34px;
-}
-
 .desktop-nav { margin-left: auto; }
 
 .nav-list {
@@ -252,9 +206,9 @@ h3 {
 .hero__grid {
   min-height: 690px;
   display: grid;
-  grid-template-columns: 1.42fr 0.58fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 4rem;
+  gap: 2.5rem;
   padding-block: 6.5rem;
 }
 
@@ -263,8 +217,6 @@ h3 {
   position: relative;
   z-index: 2;
 }
-
-.hero__mobile-brand { display: none; }
 
 .hero__lead,
 .page-hero p {
@@ -332,57 +284,6 @@ h3 {
 .button--secondary {
   color: var(--text);
   background: rgba(5, 21, 36, 0.72);
-}
-
-.hero__panel {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  border: 1px solid var(--line-strong);
-  background:
-    linear-gradient(180deg, rgba(11, 39, 63, 0.94), rgba(3, 17, 30, 0.94));
-  box-shadow: var(--shadow);
-}
-
-.hero__panel-topline {
-  color: var(--ice);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.hero__panel-number {
-  margin: 1.5rem 0 0.5rem;
-  color: rgba(43, 193, 255, 0.25);
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 6rem;
-  font-weight: 800;
-  line-height: 0.8;
-}
-
-.hero__panel h2 {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-}
-
-.hero__panel p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.hero__panel-rule {
-  height: 1px;
-  margin-block: 1.4rem;
-  background: linear-gradient(90deg, var(--ice), transparent);
-}
-
-.hero__panel-signoff {
-  margin-bottom: 0;
-  color: var(--text) !important;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 
 .page-hero { padding-block: 7rem; }
@@ -720,8 +621,6 @@ h3 {
     padding-block: 5rem;
   }
 
-  .hero__panel { max-width: 620px; }
-
   .impact-strip__grid {
     grid-template-columns: 1fr;
   }
@@ -755,13 +654,6 @@ h3 {
   .page-hero {
     padding-block: 4.2rem;
   }
-
-  .hero__mobile-brand {
-    display: block;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero__panel-number { font-size: 4.5rem; }
 
   .section { padding-block: 4rem; }
 

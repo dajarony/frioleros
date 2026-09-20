@@ -1,0 +1,16 @@
+---
+import { companySteps } from "@content/companies";
+import "@styles/companies.css";
+---
+
+<div class="company-path">
+  {companySteps.map((item) => (
+    <article class="company-path__step">
+      <span>{item.step}</span>
+      <div>
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+      </div>
+    </article>
+  ))}
+</div>

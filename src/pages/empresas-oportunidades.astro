@@ -1,27 +1,64 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import OpportunityGrid from "@components/sections/OpportunityGrid.astro";
+import CompanySectorGrid from "@components/companies/CompanySectorGrid.astro";
+import CompanyPath from "@components/companies/CompanyPath.astro";
+import CompanyFinalCTA from "@components/companies/CompanyFinalCTA.astro";
 import ButtonLink from "@components/ui/ButtonLink.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import { withBase } from "@lib/paths";
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Empresas y oportunidades">
+<BaseLayout
+  title="Empresas y oportunidades"
+  description="Frioleros conecta estudiantes de refrigeración industrial en Canarias con empresas que puedan ofrecer empleo, prácticas, mentoría, formación o experiencia real."
+>
   <section class="page-hero page-hero--aggressive">
     <div class="shell">
-      <p class="eyebrow">Empresas</p>
-      <h1>Tu empresa también puede <span>enfriar el futuro.</span></h1>
+      <p class="eyebrow">Empresas · Industria · Talento</p>
+      <h1>Una oportunidad puede <span>crear un gran técnico.</span></h1>
       <p>
-        Buscamos compañías dispuestas a transformar formación en experiencia,
-        experiencia en profesión y profesión en futuro.
+        Queremos conocer empresas que estén dispuestas a abrir una primera
+        puerta: empleo, prácticas, mentoría, formación, visitas técnicas o
+        experiencia real dentro del sector.
       </p>
-      <ButtonLink href={`${base}contacto/`}>Quiero ofrecer una oportunidad</ButtonLink>
+      <ButtonLink href={withBase(base, "/equipo/")}>Conoce al equipo</ButtonLink>
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Cómo puedes ayudarnos"
+        title="No existe una sola forma de dar una oportunidad."
+        text="Una empresa puede aportar mucho antes incluso de que exista un contrato. Estas son algunas formas concretas de participar."
+      />
+      <OpportunityGrid />
     </div>
   </section>
 
   <section class="section">
     <div class="shell">
-      <OpportunityGrid />
+      <SectionHeading
+        eyebrow="Dónde queremos crecer"
+        title="Un sector presente en toda Canarias."
+        text="El frío y la climatización atraviesan muchas industrias. Queremos acercarnos a empresas donde podamos aprender el oficio en situaciones reales."
+      />
+      <CompanySectorGrid />
     </div>
   </section>
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Simple y directo"
+        title="Cómo empieza una colaboración."
+      />
+      <CompanyPath />
+    </div>
+  </section>
+
+  <CompanyFinalCTA />
 </BaseLayout>
