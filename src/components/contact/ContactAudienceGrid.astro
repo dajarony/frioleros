@@ -1,0 +1,21 @@
+---
+import { contactAudiences } from "@content/contact";
+import "@styles/contact.css";
+---
+
+<div class="contact-audience-grid">
+  {contactAudiences.map((audience, index) => (
+    <article class="contact-audience">
+      <div class="contact-audience__topline">
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <span>{audience.title}</span>
+      </div>
+
+      <p>{audience.description}</p>
+
+      <ul aria-label={`Opciones para ${audience.title}`}>
+        {audience.actions.map((action) => <li>{action}</li>)}
+      </ul>
+    </article>
+  ))}
+</div>

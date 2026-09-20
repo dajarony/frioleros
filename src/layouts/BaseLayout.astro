@@ -2,6 +2,7 @@
 import SiteHeader from "@components/layout/SiteHeader.astro";
 import SiteFooter from "@components/layout/SiteFooter.astro";
 import { site } from "@content/site";
+import { withBase } from "@lib/paths";
 import "@styles/global.css";
 
 interface Props {
@@ -18,6 +19,12 @@ const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
 const canonicalURL = Astro.site
   ? new URL(Astro.url.pathname, Astro.site)
   : Astro.url;
+
+const base = import.meta.env.BASE_URL;
+const logoPath = withBase(base, "/brand/frioleros-logo.webp");
+const socialImageURL = Astro.site
+  ? new URL(logoPath, Astro.site)
+  : new URL(logoPath, Astro.url);
 ---
 
 <!doctype html>
@@ -30,6 +37,7 @@ const canonicalURL = Astro.site
     <meta name="robots" content="index,follow" />
 
     <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/webp" href={logoPath} />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
@@ -37,10 +45,13 @@ const canonicalURL = Astro.site
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content="Logo de Frioleros" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
 
     <title>{pageTitle}</title>
   </head>

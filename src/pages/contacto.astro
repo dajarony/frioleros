@@ -1,33 +1,52 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { site } from "@content/site";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import ContactAudienceGrid from "@components/contact/ContactAudienceGrid.astro";
+import ContactBrief from "@components/contact/ContactBrief.astro";
+import ContactActionPanel from "@components/contact/ContactActionPanel.astro";
 ---
 
-<BaseLayout title="Contacto">
+<BaseLayout
+  title="Contacto"
+  description="Contacta con Frioleros para proponer empleo, prácticas, visitas técnicas, mentoría, formación, apoyo institucional o difusión del proyecto."
+>
   <section class="page-hero">
     <div class="shell">
-      <p class="eyebrow">Contacto</p>
+      <p class="eyebrow">Contacto · Oportunidades · Colaboración</p>
       <h1>Hablemos de <span>oportunidades.</span></h1>
-      <p>Empresas, profesionales, instituciones y entidades del sector: queremos escucharos.</p>
+      <p>
+        Empresas, profesionales, instituciones y medios pueden aportar algo
+        diferente. Queremos que cada propuesta llegue al lugar correcto sin
+        complicaciones.
+      </p>
     </div>
   </section>
 
   <section class="section">
-    <div class="shell contact-panel">
-      <div>
-        <p class="eyebrow">Frioleros</p>
-        <h2>El frío nos une.</h2>
-        <p>
-          Si puedes ofrecer empleo, prácticas, mentoría, formación, una visita técnica
-          o cualquier colaboración útil para el grupo, queremos conocerte.
-        </p>
-      </div>
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Quién quiere contactar"
+        title="Tres caminos. Un mismo proyecto."
+        text="Frioleros busca oportunidades laborales, experiencia técnica y apoyo para conectar el talento en formación con el sector del frío en Canarias."
+      />
+      <ContactAudienceGrid />
+    </div>
+  </section>
 
-      {site.contactEmail ? (
-        <a class="contact-email" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
-      ) : (
-        <p class="contact-email">Canal de contacto del proyecto: pendiente de definir</p>
-      )}
+  <section class="section section--light">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Primer mensaje"
+        title="Cuéntanos lo esencial."
+        text="No necesitamos un correo largo. Con estos cinco datos podremos entender rápidamente la propuesta y responder mejor."
+      />
+      <ContactBrief />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <ContactActionPanel />
     </div>
   </section>
 </BaseLayout>

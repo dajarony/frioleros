@@ -7,6 +7,7 @@ export const site = {
     "Estudiantes de refrigeración industrial en Canarias conectando formación, talento y oportunidades reales en el sector del frío.",
   location: "Canarias, España",
   contactEmail: "",
+  repositoryUrl: "https://github.com/dajarony/frioleros",
 };
 
 export const navigation: NavItem[] = [

@@ -1,0 +1,16 @@
+---
+import { contactBrief } from "@content/contact";
+import "@styles/contact.css";
+---
+
+<div class="contact-brief">
+  {contactBrief.map((item, index) => (
+    <article class="contact-brief__item">
+      <span>{String(index + 1).padStart(2, "0")}</span>
+      <div>
+        <h3>{item.label}</h3>
+        <p>{item.description}</p>
+      </div>
+    </article>
+  ))}
+</div>

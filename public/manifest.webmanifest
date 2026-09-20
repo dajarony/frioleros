@@ -1,0 +1,16 @@
+{
+  "name": "Frioleros",
+  "short_name": "Frioleros",
+  "description": "El talento que enfría el futuro.",
+  "start_url": "/frioleros/",
+  "display": "standalone",
+  "background_color": "#04111e",
+  "theme_color": "#04111e",
+  "icons": [
+    {
+      "src": "/frioleros/brand/frioleros-logo.webp",
+      "sizes": "256x256",
+      "type": "image/webp"
+    }
+  ]
+}
