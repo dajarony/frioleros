@@ -1,0 +1,29 @@
+---
+import { navigation, site } from "@content/site";
+
+const base = import.meta.env.BASE_URL;
+const resolveHref = (href: string) =>
+  href === "/" ? base : `${base}${href.replace(/^\//, "")}`;
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__grid">
+    <div>
+      <p class="site-footer__brand">{site.name}</p>
+      <p>{site.tagline}</p>
+    </div>
+
+    <nav aria-label="Navegación secundaria">
+      <ul>
+        {navigation.map((item) => (
+          <li><a href={resolveHref(item.href)}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div>
+      <p><strong>{site.location}</strong></p>
+      <p>Formación · Talento · Empleo · Industria</p>
+    </div>
+  </div>
+</footer>
