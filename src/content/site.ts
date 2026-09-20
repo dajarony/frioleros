@@ -1,4 +1,4 @@
-import type { NavItem } from "@types/site";
+import type { NavItem } from "@domain/site";
 
 export const site = {
   name: "Frioleros",
