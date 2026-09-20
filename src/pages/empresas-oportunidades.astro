@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import OpportunityGrid from "@components/sections/OpportunityGrid.astro";
+import ButtonLink from "@components/ui/ButtonLink.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Empresas y oportunidades">
+  <section class="page-hero page-hero--aggressive">
+    <div class="shell">
+      <p class="eyebrow">Empresas</p>
+      <h1>Tu empresa también puede <span>enfriar el futuro.</span></h1>
+      <p>
+        Buscamos compañías dispuestas a transformar formación en experiencia,
+        experiencia en profesión y profesión en futuro.
+      </p>
+      <ButtonLink href={`${base}contacto/`}>Quiero ofrecer una oportunidad</ButtonLink>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <OpportunityGrid />
+    </div>
+  </section>
+</BaseLayout>
