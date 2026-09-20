@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import StudentGrid from "@components/sections/StudentGrid.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+---
+
+<BaseLayout title="Equipo">
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Nuestro equipo</p>
+      <h1>Personas diferentes. <span>Un mismo objetivo.</span></h1>
+      <p>Perfiles individuales para que las empresas conozcan el talento detrás del grupo.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading title="Conoce al equipo" text="Los perfiles reales se publicarán únicamente con autorización de cada alumno." />
+      <StudentGrid />
+    </div>
+  </section>
+</BaseLayout>
