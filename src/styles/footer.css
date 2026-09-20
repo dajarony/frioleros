@@ -1,0 +1,120 @@
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(43, 193, 255, 0.08), transparent 20rem),
+    #020a11;
+}
+
+.site-footer__main {
+  display: grid;
+  grid-template-columns: 1.15fr 0.7fr 0.85fr;
+  gap: 4rem;
+  padding-block: 4rem 3rem;
+}
+
+.site-footer__identity {
+  max-width: 390px;
+}
+
+.site-footer__identity > p {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.site-footer__heading {
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-footer nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-footer nav li + li {
+  margin-top: 0.55rem;
+}
+
+.site-footer nav a,
+.site-footer__action a {
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.site-footer nav a:hover,
+.site-footer__action a:hover {
+  color: var(--ice);
+}
+
+.site-footer__action {
+  padding-left: 1.3rem;
+  border-left: 2px solid var(--ice);
+}
+
+.site-footer__action strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.site-footer__action p {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.2rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer__bottom p {
+  margin: 0;
+  color: #668399;
+  font-size: 0.72rem;
+}
+
+@media (max-width: 900px) {
+  .site-footer__main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer__identity {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-footer__main {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+    padding-block: 3rem 2rem;
+  }
+
+  .site-footer__identity {
+    grid-column: auto;
+  }
+
+  .site-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

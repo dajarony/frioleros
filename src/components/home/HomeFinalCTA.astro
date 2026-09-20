@@ -1,0 +1,28 @@
+---
+import ButtonLink from "@components/ui/ButtonLink.astro";
+import { withBase } from "@lib/paths";
+import "@styles/home.css";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="home-final-cta">
+  <div>
+    <p class="eyebrow">Empresas · Profesionales · Entidades</p>
+    <h2>La primera oportunidad empieza con una conversación.</h2>
+    <p>
+      Si puedes ofrecer empleo, prácticas, una visita técnica, mentoría,
+      formación o simplemente enseñarnos cómo trabaja tu empresa, queremos
+      escucharte.
+    </p>
+  </div>
+
+  <div class="home-final-cta__actions">
+    <ButtonLink href={withBase(base, "/empresas-oportunidades/")}>
+      Ver formas de colaborar
+    </ButtonLink>
+    <ButtonLink href={withBase(base, "/contacto/")} variant="secondary">
+      Contactar
+    </ButtonLink>
+  </div>
+</section>

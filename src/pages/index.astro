@@ -4,23 +4,44 @@ import Hero from "@components/sections/Hero.astro";
 import ImpactStrip from "@components/sections/ImpactStrip.astro";
 import OpportunityGrid from "@components/sections/OpportunityGrid.astro";
 import CompanyCallout from "@components/sections/CompanyCallout.astro";
+import HomeRouteGrid from "@components/home/HomeRouteGrid.astro";
+import HomeFinalCTA from "@components/home/HomeFinalCTA.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
 ---
 
-<BaseLayout>
+<BaseLayout
+  description="Frioleros conecta estudiantes de refrigeración industrial en Canarias con empresas, profesionales y oportunidades reales del sector del frío."
+>
   <Hero />
   <ImpactStrip />
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Conoce Frioleros"
+        title="Primero las personas. Después la oportunidad."
+        text="En pocos minutos puedes entender qué es el proyecto, qué estamos aprendiendo y quién forma parte del equipo."
+      />
+      <HomeRouteGrid />
+    </div>
+  </section>
 
   <section class="section section--light">
     <div class="shell">
       <SectionHeading
         eyebrow="Qué puede aportar una empresa"
         title="Varias puertas. Un mismo objetivo."
-        text="Frioleros convierte la formación en un punto de encuentro entre estudiantes y empresas que quieran apostar por nuevo talento."
+        text="No todo empieza con un contrato. Una visita, una mentoría o una práctica pueden cambiar la trayectoria de una persona que está empezando."
       />
       <OpportunityGrid />
     </div>
   </section>
 
   <CompanyCallout />
+
+  <section class="section">
+    <div class="shell">
+      <HomeFinalCTA />
+    </div>
+  </section>
 </BaseLayout>
