@@ -6,10 +6,27 @@ export const students: Student[] = [
     name: "Perfil de alumno",
     role: "Estudiante de refrigeración industrial",
     location: "Gran Canaria",
-    availability: "Formación / oportunidades",
-    skills: ["Refrigeración", "Electricidad", "Montaje", "Trabajo en equipo"],
-    interests: ["Mantenimiento", "Instalaciones", "Climatización"],
+    availability: "Abierto a oportunidades",
+    summary:
+      "Perfil de demostración para enseñar cómo verá una empresa la información profesional de cada integrante de Frioleros.",
+    skills: [
+      "Refrigeración",
+      "Electricidad aplicada",
+      "Montaje",
+      "Trabajo en equipo",
+    ],
+    interests: [
+      "Mantenimiento",
+      "Instalaciones",
+      "Climatización",
+    ],
+    status: "demo",
   },
 ];
 
-// Los perfiles reales se añadirán únicamente con autorización de cada alumno.
+export const publishedStudents = students.filter(
+  (student) => student.status === "published",
+);
+
+// Los perfiles reales se publicarán únicamente con autorización de cada alumno.
+// El perfil de demostración permite validar diseño y arquitectura sin inventar datos reales.

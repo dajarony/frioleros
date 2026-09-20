@@ -4,18 +4,29 @@ import StudentGrid from "@components/sections/StudentGrid.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
 ---
 
-<BaseLayout title="Equipo">
+<BaseLayout
+  title="Equipo"
+  description="Conoce los perfiles profesionales de los integrantes de Frioleros y las áreas del sector del frío en las que quieren desarrollarse."
+>
   <section class="page-hero">
     <div class="shell">
       <p class="eyebrow">Nuestro equipo</p>
       <h1>Personas diferentes. <span>Un mismo objetivo.</span></h1>
-      <p>Perfiles individuales para que las empresas conozcan el talento detrás del grupo.</p>
+      <p>
+        Cada integrante tendrá un perfil profesional sencillo para que una
+        empresa pueda entender rápidamente quién es, qué está aprendiendo y
+        hacia dónde quiere crecer.
+      </p>
     </div>
   </section>
 
   <section class="section">
     <div class="shell">
-      <SectionHeading title="Conoce al equipo" text="Los perfiles reales se publicarán únicamente con autorización de cada alumno." />
+      <SectionHeading
+        eyebrow="Talento en formación"
+        title="Conoce al equipo"
+        text="Estamos validando el formato con un perfil de demostración. Los perfiles reales se añadirán únicamente con autorización de cada alumno."
+      />
       <StudentGrid />
     </div>
   </section>

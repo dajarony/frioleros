@@ -1,0 +1,86 @@
+---
+import type { Student } from "@domain/site";
+import { withBase } from "@lib/paths";
+import "@styles/students.css";
+
+interface Props {
+  student: Student;
+}
+
+const { student } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const initials = student.name
+  .split(" ")
+  .map((part) => part[0])
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<section class="student-profile">
+  <div class="shell">
+    <a class="student-profile__back" href={withBase(base, "/equipo/")}>
+      ← Volver al equipo
+    </a>
+
+    <div class="student-profile__hero">
+      <div class="student-profile__portrait">
+        {student.image ? (
+          <img src={student.image} alt={student.name} />
+        ) : (
+          <span aria-hidden="true">{initials}</span>
+        )}
+      </div>
+
+      <div class="student-profile__intro">
+        <p class="eyebrow">{student.role}</p>
+        <h1>{student.name}</h1>
+        <p class="student-profile__summary">{student.summary}</p>
+
+        <dl class="student-profile__facts">
+          <div>
+            <dt>Ubicación</dt>
+            <dd>{student.location}</dd>
+          </div>
+          <div>
+            <dt>Disponibilidad</dt>
+            <dd>{student.availability}</dd>
+          </div>
+          <div>
+            <dt>Perfil</dt>
+            <dd>{student.status === "demo" ? "Demostración" : "Publicado"}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="student-profile__grid">
+      <section class="student-profile__panel">
+        <p class="eyebrow">Conocimientos en desarrollo</p>
+        <h2>Qué está aprendiendo</h2>
+        <ul class="student-profile__list">
+          {student.skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </section>
+
+      <section class="student-profile__panel">
+        <p class="eyebrow">Áreas de interés</p>
+        <h2>Hacia dónde quiere crecer</h2>
+        <ul class="student-profile__list">
+          {student.interests.map((interest) => <li>{interest}</li>)}
+        </ul>
+      </section>
+    </div>
+
+    {student.status === "demo" && (
+      <aside class="student-profile__notice">
+        <strong>Perfil de demostración.</strong>
+        <p>
+          Este contenido sirve para validar el formato. Los perfiles reales se
+          publicarán solo con la autorización de cada integrante y con sus datos
+          confirmados.
+        </p>
+      </aside>
+    )}
+  </div>
+</section>
