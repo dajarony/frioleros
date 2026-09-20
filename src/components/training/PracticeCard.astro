@@ -1,0 +1,40 @@
+---
+import type { PracticeEvidence } from "@domain/training";
+import { withBase } from "@lib/paths";
+import "@styles/training.css";
+
+interface Props {
+  practice: PracticeEvidence;
+}
+
+const { practice } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const imageSrc = practice.image
+  ? withBase(base, practice.image)
+  : "";
+---
+
+<article class="practice-card">
+  <div class="practice-card__visual">
+    {imageSrc ? (
+      <img src={imageSrc} alt="" loading="lazy" />
+    ) : (
+      <div class="practice-card__placeholder">
+        <span>FR</span>
+        <small>Foto real pendiente</small>
+      </div>
+    )}
+
+    <span class="practice-card__category">{practice.category}</span>
+  </div>
+
+  <div class="practice-card__body">
+    <div class="practice-card__status">{practice.status}</div>
+    <h3>{practice.title}</h3>
+    <p>{practice.description}</p>
+
+    <ul>
+      {practice.learning.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</article>

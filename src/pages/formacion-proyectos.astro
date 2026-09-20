@@ -1,22 +1,52 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import ProjectGrid from "@components/sections/ProjectGrid.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
+import TrainingAreaGrid from "@components/training/TrainingAreaGrid.astro";
+import PracticeGrid from "@components/training/PracticeGrid.astro";
+import EvidenceStatement from "@components/training/EvidenceStatement.astro";
 ---
 
-<BaseLayout title="Formación y proyectos">
+<BaseLayout
+  title="Formación y proyectos"
+  description="Conoce las áreas técnicas, prácticas y conocimientos que el equipo de Frioleros está desarrollando durante su formación en refrigeración industrial."
+>
   <section class="page-hero">
     <div class="shell">
-      <p class="eyebrow">De la formación a la industria</p>
+      <p class="eyebrow">Formación · Taller · Evidencia</p>
       <h1>Aprender haciendo. <span>Crecer demostrando.</span></h1>
-      <p>Mostramos competencias y trabajos reales, no porcentajes inventados.</p>
+      <p>
+        Aquí enseñamos lo que estamos aprendiendo y las prácticas que vamos
+        desarrollando. Sin porcentajes inventados: conocimientos, trabajo real
+        y evolución.
+      </p>
     </div>
   </section>
 
   <section class="section">
     <div class="shell">
-      <SectionHeading title="Lo que estamos aprendiendo" />
-      <ProjectGrid />
+      <SectionHeading
+        eyebrow="Áreas técnicas"
+        title="Lo que estamos aprendiendo."
+        text="La formación combina refrigeración, electricidad, control, montaje, medición y documentación técnica."
+      />
+      <TrainingAreaGrid />
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Trabajo práctico"
+        title="Prácticas que podemos enseñar."
+        text="Cada tarjeta está preparada para incorporar una fotografía real del taller cuando la tengamos disponible."
+      />
+      <PracticeGrid />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <EvidenceStatement />
     </div>
   </section>
 </BaseLayout>

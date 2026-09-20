@@ -23,10 +23,3 @@ export type OpportunityType = {
   description: string;
   icon: string;
 };
-
-export type Project = {
-  title: string;
-  description: string;
-  category: string;
-  image?: string;
-};

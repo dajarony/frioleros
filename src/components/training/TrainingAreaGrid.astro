@@ -1,0 +1,10 @@
+---
+import TrainingAreaCard from "@components/training/TrainingAreaCard.astro";
+import { trainingAreas } from "@content/training";
+---
+
+<div class="training-area-grid">
+  {trainingAreas.map((area, index) => (
+    <TrainingAreaCard area={area} index={index} />
+  ))}
+</div>

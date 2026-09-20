@@ -1,0 +1,25 @@
+---
+import type { TrainingArea } from "@domain/training";
+import "@styles/training.css";
+
+interface Props {
+  area: TrainingArea;
+  index: number;
+}
+
+const { area, index } = Astro.props;
+---
+
+<article class="training-area">
+  <div class="training-area__topline">
+    <span>{String(index + 1).padStart(2, "0")}</span>
+    <span>{area.status}</span>
+  </div>
+
+  <h3>{area.title}</h3>
+  <p>{area.summary}</p>
+
+  <ul aria-label={`Contenidos de ${area.title}`}>
+    {area.topics.map((topic) => <li>{topic}</li>)}
+  </ul>
+</article>

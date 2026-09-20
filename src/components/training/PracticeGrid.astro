@@ -1,0 +1,10 @@
+---
+import PracticeCard from "@components/training/PracticeCard.astro";
+import { practiceEvidence } from "@content/training";
+---
+
+<div class="practice-grid">
+  {practiceEvidence.map((practice) => (
+    <PracticeCard practice={practice} />
+  ))}
+</div>
