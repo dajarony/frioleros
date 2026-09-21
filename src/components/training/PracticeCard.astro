@@ -15,20 +15,15 @@ const imageSrc = practice.image
 ---
 
 <article class="practice-card">
-  <div class="practice-card__visual">
-    {imageSrc ? (
+  {imageSrc ? (
+    <div class="practice-card__visual">
       <img src={imageSrc} alt="" loading="lazy" />
-    ) : (
-      <div class="practice-card__placeholder">
-        <span>FR</span>
-        <small>Foto real pendiente</small>
-      </div>
-    )}
-
-    <span class="practice-card__category">{practice.category}</span>
-  </div>
+      <span class="practice-card__category">{practice.category}</span>
+    </div>
+  ) : null}
 
   <div class="practice-card__body">
+    {!imageSrc && <span class="practice-card__category-text">{practice.category}</span>}
     <div class="practice-card__status">{practice.status}</div>
     <h3>{practice.title}</h3>
     <p>{practice.description}</p>

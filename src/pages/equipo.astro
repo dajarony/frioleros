@@ -2,11 +2,14 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import StudentGrid from "@components/sections/StudentGrid.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
+import { publishedStudents } from "@content/students";
 ---
 
 <BaseLayout
   title="Equipo"
-  description="Conoce los perfiles profesionales de los integrantes de Frioleros y las áreas del sector del frío en las que quieren desarrollarse."
+  description={publishedStudents.length > 0
+    ? "Conoce los perfiles profesionales de los integrantes de Frioleros y las áreas del sector del frío en las que quieren desarrollarse."
+    : "Frioleros prepara perfiles profesionales de sus integrantes. Consulta el formato de muestra mientras se autorizan los perfiles reales."}
 >
   <section class="page-hero">
     <div class="shell">
@@ -24,8 +27,10 @@ import SectionHeading from "@components/ui/SectionHeading.astro";
     <div class="shell">
       <SectionHeading
         eyebrow="Talento en formación"
-        title="Conoce al equipo"
-        text="Estamos validando el formato con un perfil de demostración. Los perfiles reales se añadirán únicamente con autorización de cada alumno."
+        title={publishedStudents.length > 0 ? "Conoce al equipo" : "Así serán los perfiles"}
+        text={publishedStudents.length > 0
+          ? "Cada perfil muestra información profesional confirmada por su integrante."
+          : "Por ahora mostramos una ficha de demostración. Los perfiles reales se publicarán solo con la autorización de cada integrante."}
       />
       <StudentGrid />
     </div>

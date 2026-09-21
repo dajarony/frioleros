@@ -1,4 +1,7 @@
 import type { HomeRoute } from "@domain/home";
+import { publishedStudents } from "@content/students";
+
+const hasPublishedStudents = publishedStudents.length > 0;
 
 export const homeRoutes: HomeRoute[] = [
   {
@@ -23,9 +26,10 @@ export const homeRoutes: HomeRoute[] = [
     index: "03",
     eyebrow: "Las personas",
     title: "Nuestro equipo",
-    description:
-      "Perfiles sencillos para que una empresa entienda quién es cada integrante, qué aprende y hacia dónde quiere crecer.",
+    description: hasPublishedStudents
+      ? "Conoce a cada integrante, qué aprende y hacia dónde quiere crecer."
+      : "Estamos preparando los perfiles reales con permiso de cada integrante. Por ahora puedes ver una ficha de muestra.",
     href: "/equipo/",
-    action: "Conocer al equipo",
+    action: hasPublishedStudents ? "Conocer al equipo" : "Ver ficha de muestra",
   },
 ];

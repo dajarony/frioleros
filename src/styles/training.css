@@ -81,28 +81,6 @@
   object-fit: cover;
 }
 
-.practice-card__placeholder {
-  display: grid;
-  height: 100%;
-  place-content: center;
-  text-align: center;
-}
-
-.practice-card__placeholder > span {
-  color: rgba(255, 255, 255, 0.1);
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 5rem;
-  font-weight: 800;
-}
-
-.practice-card__placeholder small {
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .practice-card__category {
   position: absolute;
   left: 0.8rem;
@@ -112,6 +90,16 @@
   background: var(--ice);
   font-size: 0.66rem;
   font-weight: 800;
+  text-transform: uppercase;
+}
+
+.practice-card__category-text {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -154,42 +142,6 @@
   color: var(--ice);
 }
 
-.evidence-statement {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
-  padding: 2rem;
-  border: 1px solid var(--line-strong);
-  background:
-    radial-gradient(circle at 85% 30%, rgba(43, 193, 255, 0.12), transparent 18rem),
-    #061827;
-}
-
-.evidence-statement h2 {
-  max-width: 460px;
-}
-
-.evidence-statement__points {
-  display: grid;
-  gap: 0;
-}
-
-.evidence-statement__points p {
-  padding: 1rem 0;
-  margin: 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-.evidence-statement__points p:first-child {
-  border-top: 0;
-}
-
-.evidence-statement__points strong {
-  color: var(--text);
-}
-
 .section--light .practice-card {
   border-color: rgba(10, 74, 112, 0.15);
   background: rgba(255, 255, 255, 0.78);
@@ -203,11 +155,6 @@
     #d9eaf5;
 }
 
-.section--light .practice-card__placeholder > span {
-  color: rgba(7, 20, 33, 0.1);
-}
-
-.section--light .practice-card__placeholder small,
 .section--light .practice-card__body > p {
   color: var(--muted-dark);
 }
@@ -223,10 +170,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .evidence-statement {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
 }
 
 @media (max-width: 620px) {
@@ -243,7 +186,4 @@
     min-height: auto;
   }
 
-  .evidence-statement {
-    padding: 1.4rem;
-  }
 }

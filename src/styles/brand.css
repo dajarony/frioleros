@@ -52,7 +52,7 @@
 .frioleros-brand--hero .frioleros-brand__image {
   position: relative;
   z-index: 1;
-  width: min(100%, 470px);
+  width: min(100%, 224px);
   height: auto;
   object-fit: contain;
   filter:
@@ -70,7 +70,5 @@
     display: none;
   }
 
-  .frioleros-brand--hero .frioleros-brand__image {
-    width: min(92vw, 390px);
-  }
+  .frioleros-brand--hero .frioleros-brand__image { width: min(92vw, 224px); }
 }

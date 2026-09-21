@@ -60,6 +60,12 @@ Los datos editables viven en `src/content/`. Los componentes no deben inventar n
 
 Los perfiles reales de alumnos se publican solo con autorización. Un perfil con `status: "demo"` se genera para validar el diseño, pero se marca como **noindex** para que los buscadores no lo indexen.
 
+## Mejoras pendientes
+
+El orden de reparación, los contratos de aceptación y el estado de cada fase están en [`docs/PLAN-DE-MEJORAS.md`](docs/PLAN-DE-MEJORAS.md). Los datos y permisos necesarios para activar el contacto, los perfiles reales y las fotografías se detallan en [`docs/ENTRADAS-PARA-PUBLICAR.md`](docs/ENTRADAS-PARA-PUBLICAR.md).
+
+El canal de contacto se configura en `src/content/site.ts` mediante `contactEmail`. Mientras esté vacío, los botones muestran las formas de colaborar sin prometer un envío que aún no está disponible.
+
 ## Añadir una foto de práctica
 
 1. Guarda la imagen optimizada dentro de `public/`.

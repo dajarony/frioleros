@@ -1,3 +1,6 @@
+import { publishedStudents } from "@content/students";
+import { hasContactEmail } from "@content/site";
+
 export type CompanySector = {
   title: string;
   description: string;
@@ -47,17 +50,23 @@ export const companySectors: CompanySector[] = [
 export const companySteps: CompanyStep[] = [
   {
     step: "01",
-    title: "Conoce al equipo",
-    description: "Revisa perfiles, intereses y conocimientos que cada alumno está desarrollando.",
+    title: publishedStudents.length > 0 ? "Conoce al equipo" : "Conoce el proyecto",
+    description: publishedStudents.length > 0
+      ? "Revisa perfiles, intereses y conocimientos que cada alumno está desarrollando."
+      : "Descubre la formación del grupo y el formato previsto para los perfiles de alumnos.",
   },
   {
     step: "02",
-    title: "Propón una oportunidad",
-    description: "Empleo, prácticas, mentoría, visita técnica, formación o colaboración.",
+    title: hasContactEmail ? "Propón una oportunidad" : "Prepara una propuesta",
+    description: hasContactEmail
+      ? "Empleo, prácticas, mentoría, visita técnica, formación o colaboración."
+      : "Define la oportunidad, la isla y el tipo de perfil que buscas.",
   },
   {
     step: "03",
-    title: "Hablemos",
-    description: "Conectamos la propuesta con las personas del grupo a las que mejor puede ayudar.",
+    title: hasContactEmail ? "Hablemos" : "Canal en preparación",
+    description: hasContactEmail
+      ? "Conectamos la propuesta con las personas del grupo a las que mejor puede ayudar."
+      : "Publicaremos la vía oficial para recibir propuestas cuando el grupo la confirme.",
   },
 ];

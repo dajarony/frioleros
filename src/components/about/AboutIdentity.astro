@@ -1,6 +1,7 @@
 ---
 import BrandLogo from "@components/brand/BrandLogo.astro";
 import ButtonLink from "@components/ui/ButtonLink.astro";
+import { publishedStudents } from "@content/students";
 import { withBase } from "@lib/paths";
 import "@styles/about.css";
 
@@ -27,7 +28,9 @@ const base = import.meta.env.BASE_URL;
     </p>
 
     <div class="about-identity__actions">
-      <ButtonLink href={withBase(base, "/equipo/")}>Conoce al equipo</ButtonLink>
+      <ButtonLink href={withBase(base, "/equipo/")}>
+        {publishedStudents.length > 0 ? "Conoce al equipo" : "Ver perfil de muestra"}
+      </ButtonLink>
       <ButtonLink href={withBase(base, "/formacion-proyectos/")} variant="secondary">
         Ver formación
       </ButtonLink>
