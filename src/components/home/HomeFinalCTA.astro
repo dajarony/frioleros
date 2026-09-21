@@ -1,5 +1,6 @@
 ---
 import ButtonLink from "@components/ui/ButtonLink.astro";
+import { hasContactEmail } from "@content/site";
 import { withBase } from "@lib/paths";
 import "@styles/home.css";
 
@@ -9,11 +10,15 @@ const base = import.meta.env.BASE_URL;
 <section class="home-final-cta">
   <div>
     <p class="eyebrow">Empresas · Profesionales · Entidades</p>
-    <h2>La primera oportunidad empieza con una conversación.</h2>
+    <h2>
+      {hasContactEmail
+        ? "La primera oportunidad empieza con una conversación."
+        : "Conoce cómo puedes abrir una puerta."}
+    </h2>
     <p>
-      Si puedes ofrecer empleo, prácticas, una visita técnica, mentoría,
-      formación o simplemente enseñarnos cómo trabaja tu empresa, queremos
-      escucharte.
+      {hasContactEmail
+        ? "Si puedes ofrecer empleo, prácticas, una visita técnica, mentoría o formación, queremos escucharte."
+        : "Si puedes ofrecer empleo, prácticas, mentoría o formación, conoce las formas de colaborar. El canal oficial de contacto está en preparación."}
     </p>
   </div>
 
@@ -21,8 +26,10 @@ const base = import.meta.env.BASE_URL;
     <ButtonLink href={withBase(base, "/empresas-oportunidades/")}>
       Ver formas de colaborar
     </ButtonLink>
-    <ButtonLink href={withBase(base, "/contacto/")} variant="secondary">
-      Contactar
-    </ButtonLink>
+    {hasContactEmail && (
+      <ButtonLink href={withBase(base, "/contacto/")} variant="secondary">
+        Contactar
+      </ButtonLink>
+    )}
   </div>
 </section>

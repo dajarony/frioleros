@@ -6,6 +6,7 @@ import CompanyPath from "@components/companies/CompanyPath.astro";
 import CompanyFinalCTA from "@components/companies/CompanyFinalCTA.astro";
 import ButtonLink from "@components/ui/ButtonLink.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
+import { publishedStudents } from "@content/students";
 import { withBase } from "@lib/paths";
 
 const base = import.meta.env.BASE_URL;
@@ -13,7 +14,7 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout
   title="Empresas y oportunidades"
-  description="Frioleros conecta estudiantes de refrigeración industrial en Canarias con empresas que puedan ofrecer empleo, prácticas, mentoría, formación o experiencia real."
+  description="Conoce cómo empresas del sector del frío pueden apoyar a estudiantes de refrigeración industrial en Canarias con empleo, prácticas, mentoría o formación."
 >
   <section class="page-hero page-hero--aggressive">
     <div class="shell">
@@ -24,7 +25,9 @@ const base = import.meta.env.BASE_URL;
         puerta: empleo, prácticas, mentoría, formación, visitas técnicas o
         experiencia real dentro del sector.
       </p>
-      <ButtonLink href={withBase(base, "/equipo/")}>Conoce al equipo</ButtonLink>
+      <ButtonLink href={withBase(base, "/equipo/")}>
+        {publishedStudents.length > 0 ? "Conoce al equipo" : "Ver perfil de muestra"}
+      </ButtonLink>
     </div>
   </section>
 

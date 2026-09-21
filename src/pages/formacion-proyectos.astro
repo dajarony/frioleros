@@ -3,7 +3,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import SectionHeading from "@components/ui/SectionHeading.astro";
 import TrainingAreaGrid from "@components/training/TrainingAreaGrid.astro";
 import PracticeGrid from "@components/training/PracticeGrid.astro";
-import EvidenceStatement from "@components/training/EvidenceStatement.astro";
 ---
 
 <BaseLayout
@@ -38,15 +37,10 @@ import EvidenceStatement from "@components/training/EvidenceStatement.astro";
       <SectionHeading
         eyebrow="Trabajo práctico"
         title="Prácticas que podemos enseñar."
-        text="Cada tarjeta está preparada para incorporar una fotografía real del taller cuando la tengamos disponible."
+        text="Estas fichas describen actividades de aprendizaje en curso. Incorporaremos fotografías del taller cuando estén disponibles y autorizadas."
       />
       <PracticeGrid />
     </div>
   </section>
 
-  <section class="section">
-    <div class="shell">
-      <EvidenceStatement />
-    </div>
-  </section>
 </BaseLayout>

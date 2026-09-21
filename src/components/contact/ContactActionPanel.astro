@@ -1,6 +1,6 @@
 ---
 import ButtonLink from "@components/ui/ButtonLink.astro";
-import { site } from "@content/site";
+import { contactEmail, hasContactEmail } from "@content/site";
 import "@styles/contact.css";
 
 const subject = encodeURIComponent("Oportunidad / colaboración con Frioleros");
@@ -18,36 +18,36 @@ const body = encodeURIComponent(
   ].join("\n"),
 );
 
-const mailto = site.contactEmail
-  ? `mailto:${site.contactEmail}?subject=${subject}&body=${body}`
+const mailto = hasContactEmail
+  ? `mailto:${contactEmail}?subject=${subject}&body=${body}`
   : "";
 ---
 
 <section class="contact-action-panel" aria-labelledby="contact-action-title">
   <div>
     <p class="eyebrow">Canal directo</p>
-    <h2 id="contact-action-title">Hablemos de una oportunidad real.</h2>
+    <h2 id="contact-action-title">
+      {hasContactEmail ? "Hablemos de una oportunidad real." : "Canal de contacto en preparación."}
+    </h2>
     <p>
-      Queremos que contactar con Frioleros sea sencillo. El canal oficial del
-      proyecto se publicará aquí en cuanto quede definido por el grupo.
+      {hasContactEmail
+        ? "Cuéntanos qué oportunidad propones y desde qué isla nos escribes. Puedes usar el mensaje preparado o copiar el correo del proyecto."
+        : "El grupo está definiendo su correo oficial. Publicaremos aquí el canal de contacto en cuanto esté confirmado."}
     </p>
   </div>
 
   <div class="contact-action-panel__action">
-    {site.contactEmail ? (
+    {hasContactEmail ? (
       <>
         <ButtonLink href={mailto}>Escribir a Frioleros</ButtonLink>
-        <a class="contact-action-panel__email" href={`mailto:${site.contactEmail}`}>
-          {site.contactEmail}
+        <a class="contact-action-panel__email" href={`mailto:${contactEmail}`}>
+          {contactEmail}
         </a>
       </>
     ) : (
       <>
         <strong>Canal oficial en preparación</strong>
-        <p>
-          La página está lista para activarlo sin tocar el diseño ni la
-          arquitectura: solo necesitamos definir el correo oficial del proyecto.
-        </p>
+        <p>Aún no podemos recibir propuestas desde esta web.</p>
       </>
     )}
   </div>

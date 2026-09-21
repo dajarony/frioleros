@@ -1,5 +1,7 @@
 ---
 import ButtonLink from "@components/ui/ButtonLink.astro";
+import { publishedStudents } from "@content/students";
+import { hasContactEmail } from "@content/site";
 import { withBase } from "@lib/paths";
 import "@styles/companies.css";
 
@@ -18,8 +20,14 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <div class="company-final-cta__actions">
-      <ButtonLink href={withBase(base, "/contacto/")}>Contactar con Frioleros</ButtonLink>
-      <ButtonLink href={withBase(base, "/equipo/")} variant="secondary">Ver equipo</ButtonLink>
+      {hasContactEmail ? (
+        <ButtonLink href={withBase(base, "/contacto/")}>Contactar con Frioleros</ButtonLink>
+      ) : (
+        <p class="company-final-cta__pending">El canal oficial de contacto está en preparación.</p>
+      )}
+      <ButtonLink href={withBase(base, "/equipo/")} variant="secondary">
+        {publishedStudents.length > 0 ? "Ver equipo" : "Ver perfil de muestra"}
+      </ButtonLink>
     </div>
   </div>
 </section>
