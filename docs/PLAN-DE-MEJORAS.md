@@ -17,7 +17,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 | 3. Prácticas con pruebas | P1 | Evidencia real de trabajo y aprendizaje | Fotos y datos de prácticas confirmados | Fichas sin falsos huecos de foto; faltan evidencias |
 | 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Criterios técnicos comprobados con el logo actual; original opcional pendiente |
 | 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | QA técnica automatizada y rutas comprobadas; cierre integral pendiente de contenido real |
-| 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Migración, guardia y comparación de ocho páginas verificadas localmente; pendiente CI y despliegue |
+| 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Cerrada: guardia y despliegue verificados en PR #4 |
 | 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Oso geométrico elegido como dirección; boceto SVG pendiente de aprobación |
 
 ## Contrato F1 — Contacto operativo
@@ -131,7 +131,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** cada archivo fuente tiene un único dueño reconocible, no hay módulos huérfanos ni dependencias circulares y el cumplimiento de SUME + STDG se comprueba automáticamente.
 
-**Entradas:** estructura Astro y contrato `CONTRATO-MIGRACION-SUME.md`. **Estado actual:** la clasificación, DOCBLOCKs, mapa y registro están implantados; guardia y comparación de ocho páginas pasan localmente. Falta verificar la CI y el sitio publicado.
+**Entradas:** estructura Astro y contrato `CONTRATO-MIGRACION-SUME.md`. **Estado actual:** fase técnica cerrada; clasificación, DOCBLOCKs, mapa, registro y guardia están implantados. La comparación de ocho páginas pasó localmente y la CI y GitHub Pages terminaron correctamente.
 
 **Estados:** `saneamiento_parcial` mientras falten carpetas, DOCBLOCKs, mapa o registro; `sume_verificado` cuando todos los invariantes del contrato pasen. **Acciones:** clasificar módulos, trasladarlos, documentar sus entradas y salidas, registrar el cambio y ejecutar la guardia.
 
@@ -140,6 +140,8 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 **Aceptación verificable:** la migración instala las seis carpetas SUME, `.sume`, DOCBLOCKs, mapa de arquitectura, registro append-only y guardia mapa↔Git; además pasan `check`, `verify:source`, `build` y `verify`. Las rutas y el HTML público conservan su comportamiento.
 
 **Verificación adicional:** `npm run verify:sume` pasa para 72 módulos, nueve entradas de ruta y ocho contratos. Cuatro pruebas cubren la correspondencia exacta y las tres derivas de mapa exigidas por SUME.
+
+**Cierre del 2026-09-22:** PR #4 fusionado en `main` (`fc078eb`). El [workflow de publicación](https://github.com/dajarony/frioleros/actions/runs/35707279485) pasó `check`, `verify:source`, `verify:sume`, `build`, `verify` y el despliegue. La portada pública volvió a cargar con su aspecto y CTA previstos.
 
 ## Contrato F7 — Identidad visual
 
