@@ -4,7 +4,7 @@ Fecha inicial: 2026-09-21. Revisión: 2026-09-22. Estado: plan de reparación; c
 
 ## Base de la auditoría
 
-La web publicada se revisó en escritorio y a 390 y 320 px. El repositorio fuente es `dajarony/frioleros`, rama `main`, commit inicial de esta revisión `5d91e8a`. El proyecto es Astro estático. Sus fuentes de contenido están en `src/content/` y el despliegue usa GitHub Pages. No hay `STATUS.md` ni `docs/PLAYBOOK.md`, por lo que estas fases son **fases de reparación por prioridad**, no las nueve fases de construcción de `/dajarony-fase`.
+La web publicada se revisó en escritorio y a 390 y 320 px. El repositorio fuente es `dajarony/frioleros`, rama `main`, commit inicial de esta revisión `5d91e8a`. El proyecto es Astro estático. Las fuentes de contenido estaban inicialmente en `src/content/`; tras la migración SUME viven en `entradas/contenido/`. El despliegue usa GitHub Pages. No hay `STATUS.md` ni `docs/PLAYBOOK.md`, por lo que estas fases son **fases de reparación por prioridad**, no las nueve fases de construcción de `/dajarony-fase`.
 
 Los contratos siguientes usan criterios de pantalla y de comportamiento de `dajarony-scp` y `dajarony-faser`. No son contratos SCP aprobados. Una aprobación humana formal solo sería necesaria si se decidiera incorporar el método Dajarony completo al proyecto.
 
@@ -17,7 +17,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 | 3. Prácticas con pruebas | P1 | Evidencia real de trabajo y aprendizaje | Fotos y datos de prácticas confirmados | Fichas sin falsos huecos de foto; faltan evidencias |
 | 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Criterios técnicos comprobados con el logo actual; original opcional pendiente |
 | 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | QA técnica automatizada y rutas comprobadas; cierre integral pendiente de contenido real |
-| 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Configuración separada y guardia de módulos aplicada; SUME estricto pendiente |
+| 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Migración, guardia y comparación de ocho páginas verificadas localmente; pendiente CI y despliegue |
 | 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Oso geométrico elegido como dirección; boceto SVG pendiente de aprobación |
 
 ## Contrato F1 — Contacto operativo
@@ -28,7 +28,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Entradas:** correo oficial de Frioleros, confirmado para publicación por el grupo; asunto y plantilla de primer mensaje existentes. No se usará una dirección inventada ni una cuenta personal sin autorización.
 
-**Estados:** `sin_canal` si `contactEmail` está vacío; `operativo` si contiene la dirección confirmada. La fuente de verdad es `src/content/contact-channel.ts`.
+**Estados:** `sin_canal` si `contactEmail` está vacío; `operativo` si contiene la dirección confirmada. La fuente de verdad es `entradas/contenido/contact-channel.ts`.
 
 **Acciones:** `ir_a_contacto` lleva a `/contacto/`; `escribir` abre `mailto:` con destinatario, asunto y plantilla cuando el estado es `operativo`.
 
@@ -48,7 +48,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Entradas:** ficha validada por cada alumno y autorización expresa para publicar cada dato y foto. El grupo decide si usa nombre completo, nombre parcial o alias profesional.
 
-**Estados:** `sin_perfiles_publicados`, `con_perfiles_publicados`; cada perfil está en `demo` o `published`. La fuente de verdad es `src/content/students.ts`.
+**Estados:** `sin_perfiles_publicados`, `con_perfiles_publicados`; cada perfil está en `demo` o `published`. La fuente de verdad es `entradas/contenido/students.ts`.
 
 **Acciones:** abrir ficha y volver a la lista. Un perfil de demostración sigue marcado como tal y con `noindex`.
 
@@ -66,7 +66,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** mostrar al menos dos prácticas con evidencia auténtica y explicar qué se hizo y qué se aprendió.
 
-**Entradas:** imágenes del taller cuya publicación esté permitida y descripciones verificadas por quienes realizaron la práctica. La fuente de verdad es `src/content/training.ts`; imágenes en `public/`.
+**Entradas:** imágenes del taller cuya publicación esté permitida y descripciones verificadas por quienes realizaron la práctica. La fuente de verdad es `entradas/contenido/training.ts`; imágenes en `public/`.
 
 **Estados:** práctica `sin_foto` o `con_foto`; estado formativo existente (`En formación`, `En desarrollo`, `Práctica guiada`).
 
@@ -131,13 +131,15 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** cada archivo fuente tiene un único dueño reconocible, no hay módulos huérfanos ni dependencias circulares y el cumplimiento de SUME + STDG se comprueba automáticamente.
 
-**Entradas:** estructura Astro actual y contrato `CONTRATO-MIGRACION-SUME.md`. **Estado actual:** la guardia de módulos y el saneamiento de responsabilidades pasan; el proyecto todavía no cumple SUME estricto.
+**Entradas:** estructura Astro y contrato `CONTRATO-MIGRACION-SUME.md`. **Estado actual:** la clasificación, DOCBLOCKs, mapa y registro están implantados; guardia y comparación de ocho páginas pasan localmente. Falta verificar la CI y el sitio publicado.
 
 **Estados:** `saneamiento_parcial` mientras falten carpetas, DOCBLOCKs, mapa o registro; `sume_verificado` cuando todos los invariantes del contrato pasen. **Acciones:** clasificar módulos, trasladarlos, documentar sus entradas y salidas, registrar el cambio y ejecutar la guardia.
 
 **Reglas y recuperación:** `src/pages/` queda como adaptador obligatorio de Astro; ningún archivo se excluye para ocultar un fallo. Si una importación o ruta cambia de comportamiento, se revierte ese traslado y se corrige antes de cerrar la fase.
 
 **Aceptación verificable:** la migración instala las seis carpetas SUME, `.sume`, DOCBLOCKs, mapa de arquitectura, registro append-only y guardia mapa↔Git; además pasan `check`, `verify:source`, `build` y `verify`. Las rutas y el HTML público conservan su comportamiento.
+
+**Verificación adicional:** `npm run verify:sume` pasa para 72 módulos, nueve entradas de ruta y ocho contratos. Cuatro pruebas cubren la correspondencia exacta y las tres derivas de mapa exigidas por SUME.
 
 ## Contrato F7 — Identidad visual
 

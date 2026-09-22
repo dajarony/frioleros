@@ -1,0 +1,44 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/sections/CompanyCallout.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import ButtonLink from "@components/ui/ButtonLink.astro";
+import { withBase } from "@lib/paths";
+import "@styles/company-callout.css";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="company-callout">
+  <div class="shell company-callout__grid">
+    <div>
+      <p class="eyebrow">Para empresas del sector</p>
+      <h2>Una oportunidad puede crear un gran técnico.</h2>
+      <p>
+        No buscamos únicamente un puesto. Buscamos compañías que quieran
+        enseñarnos cómo se trabaja de verdad y descubrir talento antes de que
+        termine su formación.
+      </p>
+    </div>
+
+    <div class="company-callout__action">
+      <p>¿Puedes abrirnos una puerta?</p>
+      <ButtonLink href={withBase(base, "/empresas-oportunidades/")}>
+        Ver formas de colaborar
+      </ButtonLink>
+    </div>
+  </div>
+</section>

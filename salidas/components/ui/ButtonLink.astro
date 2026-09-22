@@ -1,0 +1,28 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/ui/ButtonLink.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary";
+}
+
+const { href, variant = "primary" } = Astro.props;
+---
+
+<a class:list={["button", `button--${variant}`]} href={href}>
+  <slot />
+</a>

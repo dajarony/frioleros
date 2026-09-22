@@ -1,0 +1,30 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/companies/CompanySectorGrid.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import { companySectors } from "@content/companies";
+import "@styles/companies.css";
+---
+
+<div class="company-sectors">
+  {companySectors.map((sector, index) => (
+    <article class="company-sector">
+      <span>{String(index + 1).padStart(2, "0")}</span>
+      <h3>{sector.title}</h3>
+      <p>{sector.description}</p>
+    </article>
+  ))}
+</div>

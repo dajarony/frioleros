@@ -1,0 +1,63 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/students/StudentCard.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import type { Student } from "@domain/student";
+import { withBase } from "@lib/paths";
+import "@styles/students.css";
+
+interface Props {
+  student: Student;
+}
+
+const { student } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const profileHref = withBase(base, `/equipo/${student.id}/`);
+const initials = student.name
+  .split(" ")
+  .map((part) => part[0])
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<article class="student-card">
+  <a class="student-card__link" href={profileHref} aria-label={`Ver perfil de ${student.name}`}>
+    <div class="student-card__visual">
+      {student.image ? (
+        <img src={student.image} alt="" loading="lazy" />
+      ) : (
+        <span aria-hidden="true">{initials}</span>
+      )}
+
+      {student.status === "demo" && (
+        <span class="student-card__badge">Demostración</span>
+      )}
+    </div>
+
+    <div class="student-card__body">
+      <p class="student-card__role">{student.role}</p>
+      <h3>{student.name}</h3>
+      <p class="student-card__location">{student.location}</p>
+
+      <ul class="student-tags" aria-label="Conocimientos">
+        {student.skills.slice(0, 4).map((skill) => <li>{skill}</li>)}
+      </ul>
+
+      <span class="student-card__action">Ver perfil <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,179 @@
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/styles/header.css
+Tipo: Salida
+
+Entradas:
+- clases y estados de presentación
+
+Acciones:
+- define reglas visuales y adaptativas
+
+Salidas:
+- CSS para la interfaz
+*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: rgba(4, 17, 30, 0.91);
+  backdrop-filter: blur(18px);
+}
+
+.site-header__inner {
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  min-width: max-content;
+  align-items: center;
+  text-decoration: none;
+}
+
+.desktop-nav { margin-left: auto; }
+
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  position: relative;
+  color: #c8dce9;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  bottom: -0.65rem;
+  left: 0;
+  height: 2px;
+  background: var(--ice);
+  transition: right 160ms ease;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] { color: var(--text); }
+
+.nav-list a:hover::after,
+.nav-list a[aria-current="page"]::after { right: 0; }
+
+.header-cta {
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--ice);
+  color: #00121f;
+  background: var(--ice);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mobile-nav {
+  display: none;
+  position: relative;
+}
+
+.mobile-nav summary {
+  display: grid;
+  min-width: 76px;
+  min-height: 44px;
+  grid-auto-flow: column;
+  place-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  padding-inline: 0.65rem;
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+  list-style: none;
+}
+
+.mobile-nav summary::-webkit-details-marker { display: none; }
+
+.mobile-nav__icon {
+  display: grid;
+  gap: 3px;
+}
+
+.mobile-nav__icon i {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+}
+
+.mobile-nav__label {
+  color: #cbe0ed;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-nav[open] summary {
+  border-color: var(--ice);
+  color: var(--ice);
+}
+
+.mobile-nav nav {
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  right: 0;
+  width: min(86vw, 330px);
+  padding: 1rem;
+  border: 1px solid var(--line-strong);
+  background: #061827;
+  box-shadow: var(--shadow);
+}
+
+.mobile-nav ul {
+  padding: 0;
+  margin: 0 0 1rem;
+  list-style: none;
+}
+
+.mobile-nav li + li { border-top: 1px solid var(--line); }
+
+.mobile-nav li a {
+  display: block;
+  padding: 0.9rem 0.2rem;
+  color: #cbe0ed;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-nav li a[aria-current="page"] { color: var(--ice); }
+
+.mobile-nav__cta {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: #00101d;
+  background: var(--ice);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1040px) {
+  .desktop-nav,
+  .header-cta { display: none; }
+
+  .site-header__inner { justify-content: space-between; }
+
+  .mobile-nav { display: block; }
+}

@@ -1,0 +1,43 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/home/HomeRouteCard.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import type { HomeRoute } from "@domain/home";
+import { withBase } from "@lib/paths";
+import "@styles/home.css";
+
+interface Props {
+  route: HomeRoute;
+}
+
+const { route } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<article class="home-route-card">
+  <div class="home-route-card__top">
+    <span>{route.index}</span>
+    <span>{route.eyebrow}</span>
+  </div>
+
+  <h3>{route.title}</h3>
+  <p>{route.description}</p>
+
+  <a href={withBase(base, route.href)}>
+    {route.action}
+    <span aria-hidden="true">→</span>
+  </a>
+</article>

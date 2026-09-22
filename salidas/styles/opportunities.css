@@ -1,0 +1,60 @@
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/styles/opportunities.css
+Tipo: Salida
+
+Entradas:
+- clases y estados de presentación
+
+Acciones:
+- define reglas visuales y adaptativas
+
+Salidas:
+- CSS para la interfaz
+*/
+.card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.card-grid--three { grid-template-columns: repeat(3, 1fr); }
+
+.feature-card {
+  min-height: 220px;
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(14, 40, 65, 0.95), rgba(7, 24, 40, 0.95));
+  box-shadow: var(--shadow);
+}
+
+.feature-card__index {
+  display: block;
+  margin-bottom: 2rem;
+  color: var(--ice-strong);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.feature-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.section--light .feature-card {
+  border-color: rgba(10, 74, 112, 0.15);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 50px rgba(3, 28, 46, 0.08);
+}
+
+.section--light .feature-card p { color: #587183; }
+
+@media (max-width: 1040px) {
+  .card-grid--three { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .card-grid--three { grid-template-columns: 1fr; }
+}

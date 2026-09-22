@@ -1,6 +1,6 @@
 # Datos necesarios para publicar perfiles y prácticas
 
-Este documento es una plantilla de recogida. **No guardes respuestas personales ni autorizaciones firmadas en este repositorio público.** Incorpora a `src/content/` únicamente los campos que cada persona haya autorizado y que el grupo haya verificado.
+Este documento es una plantilla de recogida. **No guardes respuestas personales ni autorizaciones firmadas en este repositorio público.** Incorpora a `entradas/contenido/` únicamente los campos que cada persona haya autorizado y que el grupo haya verificado.
 
 ## Perfil de alumno (fase 2)
 
@@ -28,8 +28,8 @@ Para cada práctica, recopilar:
 4. Foto real y permiso de uso. Revisar que no aparezcan compañeros, matrículas, documentos o instalaciones privadas sin permiso.
 5. Texto alternativo que describa lo relevante de la imagen si aporta información que no aparece en la ficha.
 
-Actualizar `src/content/training.ts` solo después de verificar los datos; guardar la imagen optimizada en `public/`. Una ficha sin foto sigue siendo válida como descripción de aprendizaje, pero no debe presentarse como evidencia fotográfica.
+Actualizar `entradas/contenido/training.ts` solo después de verificar los datos; guardar la imagen optimizada en `public/`. Una ficha sin foto sigue siendo válida como descripción de aprendizaje, pero no debe presentarse como evidencia fotográfica.
 
 ## Canal oficial (fase 1)
 
-El grupo debe decidir una dirección compartida y confirmar que puede recibir y responder propuestas. Una vez autorizada para publicación, escribirla en `src/content/contact-channel.ts` como `contactEmail`. El build rechaza una dirección no vacía con formato inválido. Comprobar que el botón de Contacto abre un mensaje dirigido a esa misma cuenta.
+El grupo debe decidir una dirección compartida y confirmar que puede recibir y responder propuestas. Una vez autorizada para publicación, escribirla en `entradas/contenido/contact-channel.ts` como `contactEmail`. El build rechaza una dirección no vacía con formato inválido. Comprobar que el botón de Contacto abre un mensaje dirigido a esa misma cuenta.

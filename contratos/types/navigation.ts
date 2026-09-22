@@ -1,0 +1,19 @@
+/*
+SUME DOCBLOCK
+
+Nombre: contratos/types/navigation.ts
+Tipo: Contrato
+
+Entradas:
+- necesidades de datos del dominio
+
+Acciones:
+- define la forma de datos sin efectos
+
+Salidas:
+- tipos reutilizables de TypeScript
+*/
+export type NavItem = {
+  label: string;
+  href: string;
+};

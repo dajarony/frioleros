@@ -1,0 +1,66 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/sections/Hero.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import ButtonLink from "@components/ui/ButtonLink.astro";
+import BrandLogo from "@components/brand/BrandLogo.astro";
+import { publishedStudents } from "@content/students";
+import { hasContactEmail } from "@content/contact-channel";
+import { withBase } from "@lib/paths";
+import "@styles/hero.css";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="hero">
+  <div class="hero__ice hero__ice--one" aria-hidden="true"></div>
+  <div class="hero__ice hero__ice--two" aria-hidden="true"></div>
+
+  <div class="shell hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">Refrigeración industrial · Canarias</p>
+
+      <h1>
+        El talento que
+        <span>enfría el futuro.</span>
+      </h1>
+
+      <p class="hero__lead">
+        Somos estudiantes de refrigeración industrial que buscamos empresas
+        dispuestas a darnos una primera oportunidad para aprender, trabajar
+        y crecer dentro del sector del frío.
+      </p>
+
+      <div class="hero__actions">
+        <ButtonLink href={withBase(base, "/empresas-oportunidades/")}>
+          {hasContactEmail ? "Ofrece una oportunidad" : "Ver formas de colaborar"}
+        </ButtonLink>
+        <ButtonLink href={withBase(base, "/equipo/")} variant="secondary">
+          {publishedStudents.length > 0 ? "Conoce al equipo" : "Ver perfil de muestra"}
+        </ButtonLink>
+      </div>
+
+      <p class="hero__microcopy">
+        Empleo · Prácticas · Mentoría · Visitas técnicas · Formación
+      </p>
+    </div>
+
+    <div class="hero__brand-visual">
+      <BrandLogo mode="hero" />
+      <p>Entrar · Aprender · Crecer</p>
+    </div>
+  </div>
+</section>

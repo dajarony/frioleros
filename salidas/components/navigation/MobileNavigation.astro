@@ -1,0 +1,54 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/navigation/MobileNavigation.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import { hasContactEmail } from "@content/contact-channel";
+import { navigation } from "@content/navigation";
+import { isCurrentPath, withBase } from "@lib/paths";
+
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+---
+
+<details class="mobile-nav">
+  <summary aria-label="Menú de navegación">
+    <span class="mobile-nav__icon" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+    <span class="mobile-nav__label">Menú</span>
+  </summary>
+
+  <nav aria-label="Navegación móvil">
+    <ul>
+      {navigation.map((item) => (
+        <li>
+          <a
+            href={withBase(base, item.href)}
+            aria-current={isCurrentPath(currentPath, base, item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a class="mobile-nav__cta" href={withBase(base, "/empresas-oportunidades/")}>
+      {hasContactEmail ? "Ofrece una oportunidad" : "Formas de colaborar"}
+    </a>
+  </nav>
+</details>

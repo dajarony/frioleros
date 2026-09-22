@@ -35,6 +35,9 @@ jobs:
       - name: Verify source modules
         run: npm run verify:source
 
+      - name: Verify SUME architecture map
+        run: npm run verify:sume
+
       - name: Build
         run: npm run build
 

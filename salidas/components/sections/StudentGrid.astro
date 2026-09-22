@@ -1,0 +1,24 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/sections/StudentGrid.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import StudentCard from "@components/students/StudentCard.astro";
+import { students } from "@content/students";
+---
+
+<div class="student-grid">
+  {students.map((student) => <StudentCard student={student} />)}
+</div>

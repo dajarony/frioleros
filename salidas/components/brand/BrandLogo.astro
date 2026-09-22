@@ -1,0 +1,48 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/brand/BrandLogo.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import { withBase } from "@lib/paths";
+import "@styles/brand.css";
+
+interface Props {
+  mode?: "header" | "hero";
+}
+
+const { mode = "header" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const logoUrl = withBase(base, "/brand/frioleros-logo.webp");
+const isHero = mode === "hero";
+---
+
+<span class:list={["frioleros-brand", `frioleros-brand--${mode}`]}>
+  <img
+    class="frioleros-brand__image"
+    src={logoUrl}
+    width="224"
+    height="224"
+    alt={isHero ? "Frioleros, estudiantes de refrigeración industrial" : ""}
+    aria-hidden={isHero ? undefined : "true"}
+    decoding="async"
+  />
+
+  {!isHero && (
+    <span class="frioleros-brand__copy">
+      <strong>Frioleros</strong>
+      <small>Estudiantes de refrigeración industrial</small>
+    </span>
+  )}
+</span>

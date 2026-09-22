@@ -1,0 +1,49 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/companies/CompanyFinalCTA.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import ButtonLink from "@components/ui/ButtonLink.astro";
+import { publishedStudents } from "@content/students";
+import { hasContactEmail } from "@content/contact-channel";
+import { withBase } from "@lib/paths";
+import "@styles/companies.css";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="company-final-cta">
+  <div class="shell company-final-cta__inner">
+    <div>
+      <p class="eyebrow">Una primera puerta importa</p>
+      <h2>¿Tu empresa puede darnos una oportunidad?</h2>
+      <p>
+        Queremos escuchar propuestas concretas que nos permitan aprender,
+        ganar experiencia y desarrollarnos dentro del sector.
+      </p>
+    </div>
+
+    <div class="company-final-cta__actions">
+      {hasContactEmail ? (
+        <ButtonLink href={withBase(base, "/contacto/")}>Contactar con Frioleros</ButtonLink>
+      ) : (
+        <p class="company-final-cta__pending">El canal oficial de contacto está en preparación.</p>
+      )}
+      <ButtonLink href={withBase(base, "/equipo/")} variant="secondary">
+        {publishedStudents.length > 0 ? "Ver equipo" : "Ver perfil de muestra"}
+      </ButtonLink>
+    </div>
+  </div>
+</section>

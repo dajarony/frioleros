@@ -31,3 +31,19 @@
 **Qué NO se tocó:** No se publicaron datos personales, correo oficial, fotografías de prácticas ni un logo nuevo en la web.
 
 **Siguiente acción:** Revisar el PR y su despliegue; ejecutar la migración SUME en un cambio independiente y presentar el SVG a tamaño de uso para aprobación.
+
+## 2026-09-22 · medición local · Migración SUME + STDG
+
+**Qué se hizo:** Se clasificaron los 72 módulos fuente en entradas, lógica, salidas y contratos; se mantuvieron los adaptadores de ruta en `src/pages/`. Se añadieron DOCBLOCKs, `.sume`, mapa de arquitectura, registro de cambios y guardia contra deriva de Git. La CI ejecutará esa guardia.
+
+**Evidencia:** `npm run check` revisó 67 archivos sin errores, avisos ni pistas. `npm run verify:source` encontró los 72 módulos alcanzables. `npm run verify:sume` pasó con 72 módulos, nueve entradas de ruta y ocho contratos; cuatro pruebas incluyeron los tres fallos exigidos. `npm run build` generó ocho páginas y `npm run verify` comprobó 250 referencias internas y seis rutas del sitemap. Se compararon texto visible y destinos de enlaces de las ocho páginas HTML entre la versión pública previa y la vista local migrada: ocho coincidencias de ocho. La portada se comparó también visualmente en escritorio.
+
+**Límites declarados:** La coincidencia de texto y enlaces no prueba igualdad byte a byte del HTML ni accesibilidad completa. La verificación de CI y del despliegue queda pendiente hasta fusionar el PR. El logo nuevo sigue siendo un boceto sin incorporar a la web.
+
+**Errores propios:** La primera propuesta de parche intentó reemplazar un archivo con dos operaciones en el mismo parche; se corrigió antes de aplicar el cambio. No afectó al sitio.
+
+**Decisión:** Presentar la migración en un PR independiente. El cierre de la fase 6 requiere que `verify:sume` pase en GitHub Actions y que el sitio publicado conserve el comportamiento.
+
+**Qué NO se tocó:** Datos personales, correo oficial, fotografías de prácticas y activos de marca publicados.
+
+**Siguiente acción:** Revisar el PR, fusionar y verificar GitHub Pages. Después continuar con la fase 7 de identidad visual.

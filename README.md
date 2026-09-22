@@ -23,25 +23,16 @@ Escaparate profesional para conectar estudiantes de refrigeración industrial en
 ## Estructura
 
 ```text
-src/
+entradas/contenido/
+logica/lib/
+salidas/
   components/
-    about/
-    brand/
-    companies/
-    contact/
-    home/
-    layout/
-    navigation/
-    sections/
-    students/
-    training/
-    ui/
-  content/
   layouts/
-  lib/
-  pages/
   styles/
-  types/
+contratos/types/
+src/pages/                 # adaptador obligatorio de Astro
+cambios/                  # registro append-only
+mapa-global/              # rutas, contratos y módulos
 public/
   brand/
 .github/
@@ -50,15 +41,15 @@ public/
 
 ## Regla de contenido
 
-Los datos estructurados y la configuración editorial viven en `src/content/`. Las páginas y componentes conservan únicamente el texto propio de su presentación.
+Los datos estructurados y la configuración editorial viven en `entradas/contenido/`. Las páginas y componentes conservan únicamente el texto propio de su presentación. La [guía SUME](SUME-README.md) describe las responsabilidades de cada carpeta y el mapa de dependencias.
 
-- Alumnos: `src/content/students.ts`
-- Formación y prácticas: `src/content/training.ts`
-- Empresas: `src/content/companies.ts`
-- Contacto: `src/content/contact.ts`
-- Historia del proyecto: `src/content/about.ts`
-- Navegación: `src/content/navigation.ts`
-- Canal oficial: `src/content/contact-channel.ts`
+- Alumnos: `entradas/contenido/students.ts`
+- Formación y prácticas: `entradas/contenido/training.ts`
+- Empresas: `entradas/contenido/companies.ts`
+- Contacto: `entradas/contenido/contact.ts`
+- Historia del proyecto: `entradas/contenido/about.ts`
+- Navegación: `entradas/contenido/navigation.ts`
+- Canal oficial: `entradas/contenido/contact-channel.ts`
 
 Los perfiles reales de alumnos se publican solo con autorización. Un perfil con `status: "demo"` se genera para validar el diseño, pero se marca como **noindex** para que los buscadores no lo indexen.
 
@@ -66,14 +57,14 @@ Los perfiles reales de alumnos se publican solo con autorización. Un perfil con
 
 El orden de reparación, los contratos de aceptación y el estado de cada fase están en [`docs/PLAN-DE-MEJORAS.md`](docs/PLAN-DE-MEJORAS.md). Los datos y permisos necesarios para activar el contacto, los perfiles reales y las fotografías se detallan en [`docs/ENTRADAS-PARA-PUBLICAR.md`](docs/ENTRADAS-PARA-PUBLICAR.md).
 
-La [auditoría de arquitectura y diseño](docs/AUDITORIA-ARQUITECTURA-Y-DISENO.md) distingue lo ya saneado del cumplimiento SUME pendiente; el [contrato de migración](docs/CONTRATO-MIGRACION-SUME.md) fija las condiciones para esa fase.
+La [auditoría de arquitectura y diseño](docs/AUDITORIA-ARQUITECTURA-Y-DISENO.md) documenta los hallazgos iniciales; el [contrato de migración](docs/CONTRATO-MIGRACION-SUME.md) fija las condiciones de la fase SUME.
 
-El canal de contacto se configura en `src/content/contact-channel.ts` mediante `contactEmail`. Mientras esté vacío, los botones muestran las formas de colaborar sin prometer un envío que aún no está disponible.
+El canal de contacto se configura en `entradas/contenido/contact-channel.ts` mediante `contactEmail`. Mientras esté vacío, los botones muestran las formas de colaborar sin prometer un envío que aún no está disponible.
 
 ## Añadir una foto de práctica
 
 1. Guarda la imagen optimizada dentro de `public/`.
-2. Añade su ruta en el campo `image` de la práctica correspondiente en `src/content/training.ts`.
+2. Añade su ruta en el campo `image` de la práctica correspondiente en `entradas/contenido/training.ts`.
 3. No modifiques el componente visual.
 
 ## Calidad
@@ -84,8 +75,9 @@ Cada push a `main` ejecuta:
 npm install
 npm run check
 npm run verify:source
+npm run verify:sume
 npm run build
 npm run verify
 ```
 
-`verify:source` exige que todos los módulos fuente sean alcanzables desde las rutas Astro, que no haya dependencias circulares y que TypeScript no tenga variables ni parámetros sin usar. `verify` comprueba los enlaces internos del sitio generado, sus URL canónicas, las páginas indexables del sitemap y las dimensiones reales del logotipo frente al manifiesto y OpenGraph. Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.
+`verify:source` exige que todos los módulos fuente sean alcanzables desde las rutas Astro, que no haya dependencias circulares y que TypeScript no tenga variables ni parámetros sin usar. `verify:sume` comprueba DOCBLOCKs y compara el mapa con los módulos seguidos por Git. `verify` comprueba los enlaces internos del sitio generado, sus URL canónicas, las páginas indexables del sitemap y las dimensiones reales del logotipo frente al manifiesto y OpenGraph. Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.

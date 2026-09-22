@@ -1,0 +1,98 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/layouts/BaseLayout.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y contenido de página
+
+Acciones:
+- compone la estructura compartida
+
+Salidas:
+- HTML y metadatos de la página
+*/
+
+import SiteHeader from "@components/layout/SiteHeader.astro";
+import SiteFooter from "@components/layout/SiteFooter.astro";
+import { site } from "@content/site";
+import { withBase } from "@lib/paths";
+import "@styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = site.name,
+  description = site.description,
+  noindex = false,
+} = Astro.props;
+
+const pageTitle =
+  title === site.name
+    ? `${site.name} | ${site.tagline}`
+    : `${title} | ${site.name}`;
+
+const base = import.meta.env.BASE_URL;
+const homePath = withBase(base, "/");
+const canonicalPath = Astro.url.pathname.replace(/\/$/, "") === homePath.replace(/\/$/, "")
+  ? homePath
+  : Astro.url.pathname;
+const canonicalURL = Astro.site
+  ? new URL(canonicalPath, Astro.site)
+  : new URL(canonicalPath, Astro.url);
+const logoPath = withBase(base, "/brand/frioleros-logo.webp");
+const manifestPath = withBase(base, "/manifest.webmanifest");
+const socialImageURL = Astro.site
+  ? new URL(logoPath, Astro.site)
+  : new URL(logoPath, Astro.url);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#04111e" />
+    <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
+    <meta name="color-scheme" content="dark light" />
+
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
+    <link rel="icon" type="image/webp" href={logoPath} />
+    <link rel="manifest" href={manifestPath} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={canonicalURL} />}
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content="Logo de Frioleros" />
+    <meta property="og:image:width" content="224" />
+    <meta property="og:image:height" content="224" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <SiteHeader />
+    <main id="contenido" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

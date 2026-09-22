@@ -1,6 +1,6 @@
 # Contrato de migración SUME + STDG para Frioleros
 
-Estado: **borrador técnico**, 2026-09-22. Este contrato define el trabajo necesario; no declara que la migración esté hecha ni aprueba una nueva arquitectura por cuenta del grupo.
+Estado: **implementado y verificado localmente; CI y despliegue pendientes**, 2026-09-22. Este contrato define los invariantes que deben seguir cumpliéndose después de la publicación.
 
 ## Objetivo y alcance
 
@@ -8,7 +8,7 @@ Instalar la estructura, trazabilidad y guardia de `dajarony-sume` sin alterar el
 
 ## Mapa de responsabilidades
 
-| Responsabilidad | Destino SUME | Fuente actual |
+| Responsabilidad | Destino SUME | Fuente antes de la migración |
 | --- | --- | --- |
 | Contenido editorial y configuración de entrada | `entradas/contenido/` | `src/content/` |
 | Reglas puras de rutas y estados derivados | `logica/` | `src/lib/` y lógica derivada en contenido |
@@ -30,3 +30,5 @@ Instalar la estructura, trazabilidad y guardia de `dajarony-sume` sin alterar el
 ## Aceptación
 
 El diff de HTML generado antes y después coincide salvo marcas técnicas inevitables de empaquetado; el mapa y guardia pasan también con tres casos negativos (módulo nuevo sin entrada, entrada obsoleta y duplicado). Un PR independiente permite revisar las renombradas y resolver cualquier incompatibilidad de Astro antes de mezclar en `main`.
+
+La guardia y sus tres casos negativos pasan localmente. `npm run check`, `npm run verify:source`, `npm run build` y `npm run verify` también pasan. El texto visible y los destinos de enlaces coinciden en las ocho páginas HTML frente a la web publicada antes de migrar; la CI y el despliegue completan el cierre.

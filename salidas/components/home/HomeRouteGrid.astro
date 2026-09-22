@@ -1,0 +1,24 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/home/HomeRouteGrid.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import HomeRouteCard from "@components/home/HomeRouteCard.astro";
+import { homeRoutes } from "@content/home";
+---
+
+<div class="home-route-grid">
+  {homeRoutes.map((route) => <HomeRouteCard route={route} />)}
+</div>

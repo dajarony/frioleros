@@ -1,6 +1,6 @@
 # Auditoría de arquitectura y diseño de Frioleros
 
-Fecha: 2026-09-22. Alcance: el código de `main` antes de esta revisión y los cambios de saneamiento de esta rama. El sitio es Astro estático; no tiene API, base de datos ni módulos de servicio en tiempo de ejecución.
+Fecha: 2026-09-22. Alcance inicial: el código de `main` antes de la migración SUME y los cambios de saneamiento de la portada. El sitio es Astro estático; no tiene API, base de datos ni módulos de servicio en tiempo de ejecución. **Estado posterior:** la fase SUME se implementó en una rama separada; el hallazgo P1 siguiente describe el estado anterior a esa migración.
 
 ## Hallazgos por prioridad
 
@@ -32,4 +32,4 @@ El archivo oficial actual es un WebP de 224 × 224 px que mezcla oso, herramient
 
 ## Decisión
 
-Se acepta el saneamiento local de responsabilidades y la reducción de contenido repetido. El cumplimiento SUME queda **pendiente** hasta completar y verificar el contrato de migración. El nuevo símbolo necesita revisión visual y aprobación antes de sustituir el logo existente.
+Se aceptó el saneamiento local de responsabilidades y la reducción de contenido repetido. En ese corte, SUME quedó pendiente. La migración posterior se comprueba con `npm run verify:sume`; la aceptación final exige también CI y despliegue. El nuevo símbolo necesita revisión visual antes de sustituir el logo existente.
