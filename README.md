@@ -80,6 +80,7 @@ Cada push a `main` ejecuta:
 npm install
 npm run check
 npm run build
+npm run verify
 ```
 
-Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.
+`verify` comprueba los enlaces internos del sitio generado, sus URL canónicas, las páginas indexables del sitemap y las dimensiones reales del logotipo frente al manifiesto y OpenGraph. Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.

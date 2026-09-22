@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
       </p>
 
       <div class="not-found__actions">
-        <ButtonLink href={base}>Volver al inicio</ButtonLink>
+        <ButtonLink href={withBase(base, "/")}>Volver al inicio</ButtonLink>
         <ButtonLink href={withBase(base, "/equipo/")} variant="secondary">
           Ver equipo
         </ButtonLink>

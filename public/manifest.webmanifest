@@ -9,7 +9,7 @@
   "icons": [
     {
       "src": "/frioleros/brand/frioleros-logo.webp",
-      "sizes": "256x256",
+      "sizes": "224x224",
       "type": "image/webp"
     }
   ]

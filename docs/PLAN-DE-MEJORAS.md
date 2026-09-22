@@ -1,6 +1,6 @@
 # Frioleros: plan de mejoras y contratos por fase
 
-Fecha: 2026-09-21. Estado: plan de reparación; ninguna fase se da por cerrada sin comprobar su contrato.
+Fecha inicial: 2026-09-21. Revisión: 2026-09-22. Estado: plan de reparación; cada fase se evalúa contra su contrato.
 
 ## Base de la auditoría
 
@@ -15,8 +15,8 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 | 1. Contacto operativo | P0 | Una empresa puede iniciar la conversación desde cualquier CTA | Correo oficial confirmado por el grupo | Canal adelantado y CTA condicionados; correo pendiente según el grupo |
 | 2. Equipo verificable | P1 | Perfiles reales y consentidos con información útil para empresas | Datos y autorización de cada alumno | Mensajes ajustados; faltan perfiles |
 | 3. Prácticas con pruebas | P1 | Evidencia real de trabajo y aprendizaje | Fotos y datos de prácticas confirmados | Fichas sin falsos huecos de foto; faltan evidencias |
-| 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Correcciones aplicadas; falta el original para mejorar la marca |
-| 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | Metadatos de imagen corregidos; comprobación final pendiente |
+| 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Criterios técnicos comprobados con el logo actual; original opcional pendiente |
+| 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | QA técnica automatizada y rutas comprobadas; cierre integral pendiente de contenido real |
 
 ## Contrato F1 — Contacto operativo
 
@@ -134,3 +134,8 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 - Las fases 2 y 3 siguen abiertas: no se han inventado perfiles ni fotografías.
 - Las entradas y permisos necesarios para esas fases se detallan en `docs/ENTRADAS-PARA-PUBLICAR.md`.
 - Los CTA y las descripciones SEO reflejan el estado real del contacto y de los perfiles; recuperan el mensaje de publicación cuando exista un correo válido o al menos un alumno publicado.
+
+## Revisión del 2026-09-22
+
+- Fase 4: las seis páginas principales se comprobaron en la web publicada a 320, 390 y 1280 px; en las 18 combinaciones `scrollWidth` coincidió con `clientWidth`. El menú móvil se abrió con Enter y mostró sus seis rutas y el CTA. Se corrigió su nombre accesible para que describa tanto el estado abierto como el cerrado. El logotipo actual sigue limitado a su resolución nativa de 224 px; mejorar su definición requiere un original aprobado.
+- Fase 5: se corrigió la URL canónica de la portada para que apunte a `/frioleros/`, se eliminaron las canónicas de páginas `noindex`, se normalizaron los enlaces del logotipo y del 404 a la portada, y el manifiesto declara los 224 × 224 px reales del icono. `npm run verify` revisa cada build antes de subirlo a Pages: 8 HTML, 251 referencias internas y 6 rutas indexables en el sitemap. La revisión técnica pasa; el cierre integral sigue pendiente de las entradas reales de las fases 1–3.
