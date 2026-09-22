@@ -1,4 +1,4 @@
-import type { OpportunityType } from "@domain/site";
+import type { OpportunityType } from "@domain/opportunity";
 
 export const opportunities: OpportunityType[] = [
   {

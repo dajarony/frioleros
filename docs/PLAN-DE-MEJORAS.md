@@ -17,6 +17,8 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 | 3. Prácticas con pruebas | P1 | Evidencia real de trabajo y aprendizaje | Fotos y datos de prácticas confirmados | Fichas sin falsos huecos de foto; faltan evidencias |
 | 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Criterios técnicos comprobados con el logo actual; original opcional pendiente |
 | 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | QA técnica automatizada y rutas comprobadas; cierre integral pendiente de contenido real |
+| 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Configuración separada y guardia de módulos aplicada; SUME estricto pendiente |
+| 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Oso geométrico elegido como dirección; boceto SVG pendiente de aprobación |
 
 ## Contrato F1 — Contacto operativo
 
@@ -26,7 +28,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Entradas:** correo oficial de Frioleros, confirmado para publicación por el grupo; asunto y plantilla de primer mensaje existentes. No se usará una dirección inventada ni una cuenta personal sin autorización.
 
-**Estados:** `sin_canal` si `site.contactEmail` está vacío; `operativo` si contiene la dirección confirmada. La fuente de verdad es `src/content/site.ts`.
+**Estados:** `sin_canal` si `contactEmail` está vacío; `operativo` si contiene la dirección confirmada. La fuente de verdad es `src/content/contact-channel.ts`.
 
 **Acciones:** `ir_a_contacto` lleva a `/contacto/`; `escribir` abre `mailto:` con destinatario, asunto y plantilla cuando el estado es `operativo`.
 
@@ -84,7 +86,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** la marca se lee nítida a su tamaño real y las páginas no fuerzan desplazamiento horizontal en pantallas estrechas.
 
-**Entradas:** logotipo actual de 224 × 224 px; si se aporta un original de mayor resolución, sustituirá al actual. No se recreará la marca sin el archivo aprobado.
+**Entradas:** logotipo actual de 224 × 224 px; si se aporta un original de mayor resolución, sustituirá al actual. La exploración de una identidad nueva se gestiona en la fase 7.
 
 **Estados:** escritorio y móvil; menú cerrado y abierto. El contenido editorial no cambia de veracidad según el tamaño.
 
@@ -124,6 +126,30 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 2. Fichas de alumnos con autorización de publicación por campo y por foto.
 3. Fotografías reales de prácticas con permiso de uso y una descripción validada.
 4. Archivo original del logotipo, si existe, para sustituir la versión de 224 px.
+
+## Contrato F6 — Sanidad y SUME
+
+**Objetivo:** cada archivo fuente tiene un único dueño reconocible, no hay módulos huérfanos ni dependencias circulares y el cumplimiento de SUME + STDG se comprueba automáticamente.
+
+**Entradas:** estructura Astro actual y contrato `CONTRATO-MIGRACION-SUME.md`. **Estado actual:** la guardia de módulos y el saneamiento de responsabilidades pasan; el proyecto todavía no cumple SUME estricto.
+
+**Estados:** `saneamiento_parcial` mientras falten carpetas, DOCBLOCKs, mapa o registro; `sume_verificado` cuando todos los invariantes del contrato pasen. **Acciones:** clasificar módulos, trasladarlos, documentar sus entradas y salidas, registrar el cambio y ejecutar la guardia.
+
+**Reglas y recuperación:** `src/pages/` queda como adaptador obligatorio de Astro; ningún archivo se excluye para ocultar un fallo. Si una importación o ruta cambia de comportamiento, se revierte ese traslado y se corrige antes de cerrar la fase.
+
+**Aceptación verificable:** la migración instala las seis carpetas SUME, `.sume`, DOCBLOCKs, mapa de arquitectura, registro append-only y guardia mapa↔Git; además pasan `check`, `verify:source`, `build` y `verify`. Las rutas y el HTML público conservan su comportamiento.
+
+## Contrato F7 — Identidad visual
+
+**Objetivo:** un símbolo y un nombre legibles en tamaños de 32, 48 y 224 px, coherentes en cabecera, favicon y redes.
+
+**Entradas:** dirección A (oso simplificado) elegida por el usuario y boceto en `docs/brand/`. **Estado actual:** concepto pendiente de evaluación; la web sigue usando el logo anterior.
+
+**Estados:** `boceto`, `final_aprobado`, `publicado`. **Acciones:** revisar símbolo y nombre juntos a tamaño de uso, ajustar variantes y sustituir los activos de la web cuando la versión final esté definida.
+
+**Reglas y recuperación:** el icono debe funcionar sin texto a 32 px y el nombre debe ser legible fuera del símbolo. Si falla la lectura o el contraste, se ajusta el vector sin cambiar el logo publicado hasta repetir la revisión.
+
+**Aceptación verificable:** el grupo aprueba un SVG final y su wordmark; se generan variantes apropiadas para fondos claros y oscuros, iconos y metadatos; se revisan visualmente los tres tamaños y pasan las comprobaciones de build y enlaces.
 
 ## Avance verificado en esta revisión
 

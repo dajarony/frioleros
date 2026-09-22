@@ -70,54 +70,6 @@
   transform: translateX(4px);
 }
 
-.home-final-cta {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 4rem;
-  align-items: center;
-  padding: 2.4rem;
-  border: 1px solid var(--line-strong);
-  background:
-    radial-gradient(circle at 88% 28%, rgba(43, 193, 255, 0.19), transparent 20rem),
-    #061827;
-  box-shadow: var(--shadow);
-}
-
-.home-final-cta::after {
-  content: "FRIOLEROS";
-  position: absolute;
-  right: -1rem;
-  bottom: -3.2rem;
-  color: rgba(43, 193, 255, 0.032);
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(7rem, 16vw, 13rem);
-  font-weight: 800;
-  pointer-events: none;
-}
-
-.home-final-cta > * {
-  position: relative;
-  z-index: 1;
-}
-
-.home-final-cta h2 {
-  max-width: 800px;
-}
-
-.home-final-cta > div:first-child > p:last-child {
-  max-width: 760px;
-  margin-bottom: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.home-final-cta__actions {
-  display: grid;
-  gap: 0.8rem;
-}
-
 .section--light .home-route-card {
   border-color: rgba(10, 74, 112, 0.14);
   background: rgba(255, 255, 255, 0.78);
@@ -149,16 +101,10 @@
   .home-route-card__top {
     margin-bottom: 2.5rem;
   }
-
-  .home-final-cta {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
 }
 
 @media (max-width: 620px) {
-  .home-route-card,
-  .home-final-cta {
+  .home-route-card {
     padding: 1.4rem;
   }
 }

@@ -1,16 +1,6 @@
 import { publishedStudents } from "@content/students";
-import { hasContactEmail } from "@content/site";
-
-export type CompanySector = {
-  title: string;
-  description: string;
-};
-
-export type CompanyStep = {
-  step: string;
-  title: string;
-  description: string;
-};
+import { hasContactEmail } from "@content/contact-channel";
+import type { CompanySector, CompanyStep } from "@domain/company";
 
 export const companySectors: CompanySector[] = [
   {

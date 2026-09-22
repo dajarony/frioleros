@@ -1,8 +1,3 @@
-export type NavItem = {
-  label: string;
-  href: string;
-};
-
 export type StudentStatus = "demo" | "published";
 
 export type Student = {
@@ -16,10 +11,4 @@ export type Student = {
   interests: string[];
   image?: string;
   status: StudentStatus;
-};
-
-export type OpportunityType = {
-  title: string;
-  description: string;
-  icon: string;
 };
