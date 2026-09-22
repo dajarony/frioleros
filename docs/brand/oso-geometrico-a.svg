@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Propuesta A: oso geométrico de Frioleros</title>
+  <desc id="desc">Cabeza de oso polar mirando a la derecha, con un acento azul hielo.</desc>
+  <path fill="#04111e" d="M42 87c-9-16-11-31-4-43 5-9 14-13 25-11l13 5c19-11 43-16 68-10 21 4 38 16 50 33l22 8c12 5 20 15 20 28 0 12-8 22-20 28l-19 8c-8 20-27 35-50 41-9 19-23 38-43 56-11 9-23 17-37 24l-13-12c8-20 11-36 9-49-18-11-30-28-35-49-4-20 1-40 14-57Z"/>
+  <path fill="#f7fbff" d="M59 91c-6-15-7-28-2-37 2-3 4-4 7-4l17 8c19-12 40-16 61-11 20 4 35 16 45 34l25 9c5 2 8 5 8 9s-3 7-8 9l-27 11c-9 20-26 32-49 36-10 22-26 42-48 58 4-22 1-40-10-53-17-17-25-40-19-69Z"/>
+  <path fill="#2bc1ff" d="M77 133c9 24 27 36 51 40-9 15-21 28-36 39 3-22-2-40-15-54-3-7-5-15-6-23l6-2Z"/>
+  <path fill="#04111e" d="m143 78 11-4 9 8-10 5-10-9Zm77 19c0 8-5 14-13 17l-13 5-9-9 7-11 28-2Z"/>
+</svg>

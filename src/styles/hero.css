@@ -43,11 +43,11 @@
 
 .hero__grid {
   display: grid;
-  min-height: 690px;
+  min-height: 620px;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 2.5rem;
-  padding-block: 6.5rem;
+  padding-block: 5.5rem;
 }
 
 .hero__copy {

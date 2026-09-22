@@ -32,6 +32,9 @@ jobs:
       - name: Type and Astro checks
         run: npm run check
 
+      - name: Verify source modules
+        run: npm run verify:source
+
       - name: Build
         run: npm run build
 

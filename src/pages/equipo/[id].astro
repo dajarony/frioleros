@@ -2,7 +2,7 @@
 import StudentProfile from "@components/students/StudentProfile.astro";
 import { students } from "@content/students";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import type { Student } from "@domain/site";
+import type { Student } from "@domain/student";
 
 export function getStaticPaths() {
   return students.map((student) => ({

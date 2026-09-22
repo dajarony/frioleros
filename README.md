@@ -50,13 +50,15 @@ public/
 
 ## Regla de contenido
 
-Los datos editables viven en `src/content/`. Los componentes no deben inventar ni duplicar información.
+Los datos estructurados y la configuración editorial viven en `src/content/`. Las páginas y componentes conservan únicamente el texto propio de su presentación.
 
 - Alumnos: `src/content/students.ts`
 - Formación y prácticas: `src/content/training.ts`
 - Empresas: `src/content/companies.ts`
 - Contacto: `src/content/contact.ts`
 - Historia del proyecto: `src/content/about.ts`
+- Navegación: `src/content/navigation.ts`
+- Canal oficial: `src/content/contact-channel.ts`
 
 Los perfiles reales de alumnos se publican solo con autorización. Un perfil con `status: "demo"` se genera para validar el diseño, pero se marca como **noindex** para que los buscadores no lo indexen.
 
@@ -64,7 +66,9 @@ Los perfiles reales de alumnos se publican solo con autorización. Un perfil con
 
 El orden de reparación, los contratos de aceptación y el estado de cada fase están en [`docs/PLAN-DE-MEJORAS.md`](docs/PLAN-DE-MEJORAS.md). Los datos y permisos necesarios para activar el contacto, los perfiles reales y las fotografías se detallan en [`docs/ENTRADAS-PARA-PUBLICAR.md`](docs/ENTRADAS-PARA-PUBLICAR.md).
 
-El canal de contacto se configura en `src/content/site.ts` mediante `contactEmail`. Mientras esté vacío, los botones muestran las formas de colaborar sin prometer un envío que aún no está disponible.
+La [auditoría de arquitectura y diseño](docs/AUDITORIA-ARQUITECTURA-Y-DISENO.md) distingue lo ya saneado del cumplimiento SUME pendiente; el [contrato de migración](docs/CONTRATO-MIGRACION-SUME.md) fija las condiciones para esa fase.
+
+El canal de contacto se configura en `src/content/contact-channel.ts` mediante `contactEmail`. Mientras esté vacío, los botones muestran las formas de colaborar sin prometer un envío que aún no está disponible.
 
 ## Añadir una foto de práctica
 
@@ -79,8 +83,9 @@ Cada push a `main` ejecuta:
 ```bash
 npm install
 npm run check
+npm run verify:source
 npm run build
 npm run verify
 ```
 
-`verify` comprueba los enlaces internos del sitio generado, sus URL canónicas, las páginas indexables del sitemap y las dimensiones reales del logotipo frente al manifiesto y OpenGraph. Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.
+`verify:source` exige que todos los módulos fuente sean alcanzables desde las rutas Astro, que no haya dependencias circulares y que TypeScript no tenga variables ni parámetros sin usar. `verify` comprueba los enlaces internos del sitio generado, sus URL canónicas, las páginas indexables del sitemap y las dimensiones reales del logotipo frente al manifiesto y OpenGraph. Si los checks pasan, GitHub Pages publica automáticamente la nueva versión.

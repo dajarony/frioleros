@@ -32,4 +32,4 @@ Actualizar `src/content/training.ts` solo después de verificar los datos; guard
 
 ## Canal oficial (fase 1)
 
-El grupo debe decidir una dirección compartida y confirmar que puede recibir y responder propuestas. Una vez autorizada para publicación, escribirla en `src/content/site.ts` como `contactEmail`. El build rechaza una dirección no vacía con formato inválido. Comprobar que el botón de Contacto abre un mensaje dirigido a esa misma cuenta.
+El grupo debe decidir una dirección compartida y confirmar que puede recibir y responder propuestas. Una vez autorizada para publicación, escribirla en `src/content/contact-channel.ts` como `contactEmail`. El build rechaza una dirección no vacía con formato inválido. Comprobar que el botón de Contacto abre un mensaje dirigido a esa misma cuenta.
