@@ -32,4 +32,4 @@ El archivo oficial actual es un WebP de 224 × 224 px que mezcla oso, herramient
 
 ## Decisión
 
-Se aceptó el saneamiento local de responsabilidades y la reducción de contenido repetido. En ese corte, SUME quedó pendiente. La migración posterior se comprueba con `npm run verify:sume`; la aceptación final exige también CI y despliegue. El nuevo símbolo necesita revisión visual antes de sustituir el logo existente.
+Se aceptó el saneamiento local de responsabilidades y la reducción de contenido repetido. En ese corte, SUME quedó pendiente. La migración posterior pasó `npm run verify:sume`, la CI y el despliegue del PR #4. El nuevo símbolo necesita revisión visual antes de sustituir el logo existente.

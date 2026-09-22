@@ -1,6 +1,6 @@
 # Contrato de migración SUME + STDG para Frioleros
 
-Estado: **implementado y verificado localmente; CI y despliegue pendientes**, 2026-09-22. Este contrato define los invariantes que deben seguir cumpliéndose después de la publicación.
+Estado: **implementado y cerrado técnicamente**, 2026-09-22. El PR #4 y el workflow `35707279485` verificaron la CI y GitHub Pages. Este contrato define los invariantes que deben seguir cumpliéndose.
 
 ## Objetivo y alcance
 
@@ -29,6 +29,6 @@ Instalar la estructura, trazabilidad y guardia de `dajarony-sume` sin alterar el
 
 ## Aceptación
 
-El diff de HTML generado antes y después coincide salvo marcas técnicas inevitables de empaquetado; el mapa y guardia pasan también con tres casos negativos (módulo nuevo sin entrada, entrada obsoleta y duplicado). Un PR independiente permite revisar las renombradas y resolver cualquier incompatibilidad de Astro antes de mezclar en `main`.
+Las ocho páginas conservan texto visible y destinos de enlaces; el mapa y guardia pasan también con tres casos negativos (módulo nuevo sin entrada, entrada obsoleta y duplicado). El PR independiente permite revisar las renombradas y resolver cualquier incompatibilidad de Astro antes de mezclar en `main`.
 
-La guardia y sus tres casos negativos pasan localmente. `npm run check`, `npm run verify:source`, `npm run build` y `npm run verify` también pasan. El texto visible y los destinos de enlaces coinciden en las ocho páginas HTML frente a la web publicada antes de migrar; la CI y el despliegue completan el cierre.
+La guardia y sus tres casos negativos pasan localmente. `npm run check`, `npm run verify:source`, `npm run build` y `npm run verify` también pasan. El texto visible y los destinos de enlaces coinciden en las ocho páginas HTML frente a la web publicada antes de migrar. GitHub Actions ejecutó también `verify:sume` y desplegó correctamente; la portada pública conserva el diseño anterior.

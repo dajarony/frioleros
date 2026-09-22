@@ -47,3 +47,19 @@
 **Qué NO se tocó:** Datos personales, correo oficial, fotografías de prácticas y activos de marca publicados.
 
 **Siguiente acción:** Revisar el PR, fusionar y verificar GitHub Pages. Después continuar con la fase 7 de identidad visual.
+
+## 2026-09-22 · medición publicada · Cierre técnico de SUME
+
+**Qué se hizo:** Se fusionó el PR #4 y se publicó la migración SUME en GitHub Pages.
+
+**Evidencia:** El workflow `35707279485` terminó con éxito: análisis Astro, guardia de módulos, guardia SUME, build, verificación del sitio y despliegue. La portada pública volvió a cargar con el CTA principal de colaboración y el diseño esperado.
+
+**Límites declarados:** Esta evidencia cierra la arquitectura y el despliegue, no certifica que cada rama condicional o selector CSS esté ejercitado. El correo oficial, los perfiles, las fotos reales y el logo final siguen pendientes en sus fases.
+
+**Errores propios:** No se observaron fallos en la CI ni en la comprobación de la portada publicada.
+
+**Decisión:** Cerrar técnicamente la fase 6. Mantener abierta la fase 7 de identidad visual.
+
+**Qué NO se tocó:** Contenido personal o activos de marca publicados.
+
+**Siguiente acción:** Revisar el oso A y el nombre juntos a tamaño real antes de sustituir el logo actual.

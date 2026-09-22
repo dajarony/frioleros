@@ -13,3 +13,13 @@ Este registro es append-only. Cada nueva modificación se añade al final con mo
 **Impacto:** los 72 módulos fuente se clasifican por función; `src/pages/` conserva las rutas Astro. El sitio y su contenido público no cambian por el traslado. La CI rechaza deriva del mapa y DOCBLOCKs ausentes. Los imports usan los mismos alias con nuevos destinos.
 
 **Autor:** Codex, por encargo del usuario.
+
+## 2026-09-22 — Cierre documental de la fase SUME
+
+**Archivos afectados:** `docs/PLAN-DE-MEJORAS.md`, `docs/CONTRATO-MIGRACION-SUME.md`, `docs/AUDITORIA-ARQUITECTURA-Y-DISENO.md`, `docs/BITACORA.md`, `cambios/registro-cambios.md`.
+
+**Motivo:** registrar el resultado de CI y GitHub Pages tras fusionar el PR #4, ausente cuando se redactó el contrato inicial.
+
+**Impacto:** la fase 6 queda cerrada con evidencia reproducible; no cambia código ejecutable ni contenido de la web.
+
+**Autor:** Codex, por encargo del usuario.
