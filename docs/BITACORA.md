@@ -63,3 +63,19 @@
 **Qué NO se tocó:** Contenido personal o activos de marca publicados.
 
 **Siguiente acción:** Revisar el oso A y el nombre juntos a tamaño real antes de sustituir el logo actual.
+
+## 2026-09-22 · referencia de diseño · Oso simplificado A
+
+**Qué se hizo:** Se generó y guardó en `docs/brand/` una referencia raster transparente del oso A elegido por el usuario para orientar la evolución del SVG y del nombre.
+
+**Evidencia:** El PNG mide 1254 × 1254 px, tiene canal alfa y muestra una sola cabeza de oso en perfil con contorno azul oscuro, rostro blanco y acento azul hielo. El primer SVG editable permanece junto a él; el logo publicado no cambió.
+
+**Límites declarados:** La referencia raster no sustituye una revisión del SVG real a 32, 48 y 224 px. El navegador bloqueó la apertura directa del SVG local por su política de seguridad; no se intentó eludir ese bloqueo. No se ha definido ni aprobado el wordmark final.
+
+**Errores propios:** No se atribuye equivalencia exacta entre el PNG generado y el trazado SVG manual.
+
+**Decisión:** Conservar ambos archivos como material de revisión de la fase 7 sin integrarlos todavía en la web.
+
+**Qué NO se tocó:** Favicons, manifiesto, OpenGraph y logo visible en el sitio.
+
+**Siguiente acción:** Evaluar el SVG y el wordmark juntos en tamaños reales antes de cerrar la identidad visual.

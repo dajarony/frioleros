@@ -23,3 +23,13 @@ Este registro es append-only. Cada nueva modificación se añade al final con mo
 **Impacto:** la fase 6 queda cerrada con evidencia reproducible; no cambia código ejecutable ni contenido de la web.
 
 **Autor:** Codex, por encargo del usuario.
+
+## 2026-09-22 — Referencia visual del oso A
+
+**Archivos afectados:** `docs/brand/oso-simplificado-a-referencia.png`, `docs/brand/README.md`, `docs/PLAN-DE-MEJORAS.md`, `docs/BITACORA.md`, `cambios/registro-cambios.md`.
+
+**Motivo:** convertir la dirección A elegida por el usuario en una referencia visual duradera para revisar el primer trazado SVG y el nombre de la marca.
+
+**Impacto:** solo documentación y material de diseño. No cambia el logo ni los activos de la web publicada.
+
+**Autor:** Codex, por encargo del usuario.
