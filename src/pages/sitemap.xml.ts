@@ -1,3 +1,18 @@
+/*
+SUME DOCBLOCK
+
+Nombre: src/pages/sitemap.xml.ts
+Tipo: Entrada
+
+Entradas:
+- URL y parámetros de ruta
+
+Acciones:
+- compone la salida de la ruta Astro
+
+Salidas:
+- página HTML o sitemap XML
+*/
 import { publishedStudents } from "@content/students";
 
 const origin = "https://dajarony.github.io";

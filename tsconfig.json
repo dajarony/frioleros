@@ -3,12 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@content/*": ["src/content/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@styles/*": ["src/styles/*"],
-      "@domain/*": ["src/types/*"],
-      "@lib/*": ["src/lib/*"]
+      "@components/*": ["salidas/components/*"],
+      "@content/*": ["entradas/contenido/*"],
+      "@layouts/*": ["salidas/layouts/*"],
+      "@styles/*": ["salidas/styles/*"],
+      "@domain/*": ["contratos/types/*"],
+      "@lib/*": ["logica/lib/*"]
     }
   }
 }

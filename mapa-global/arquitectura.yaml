@@ -1,0 +1,811 @@
+{
+  "system": "frioleros",
+  "version": "0.1.0",
+  "last_updated": "2026-09-22",
+  "sume_version": "1.0",
+  "routes": [
+    {
+      "path": "/404.html",
+      "method": "GET",
+      "entrada": "src/pages/404.astro",
+      "logica": [
+        "logica/lib/paths.ts"
+      ],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/contacto/",
+      "method": "GET",
+      "entrada": "src/pages/contacto.astro",
+      "logica": [],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/contact/ContactActionPanel.astro",
+        "salidas/components/contact/ContactAudienceGrid.astro",
+        "salidas/components/contact/ContactBrief.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/empresas-oportunidades/",
+      "method": "GET",
+      "entrada": "src/pages/empresas-oportunidades.astro",
+      "logica": [
+        "logica/lib/paths.ts"
+      ],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/companies/CompanyFinalCTA.astro",
+        "salidas/components/companies/CompanyPath.astro",
+        "salidas/components/companies/CompanySectorGrid.astro",
+        "salidas/components/sections/OpportunityGrid.astro",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/equipo/",
+      "method": "GET",
+      "entrada": "src/pages/equipo.astro",
+      "logica": [],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/sections/StudentGrid.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/equipo/:id/",
+      "method": "GET",
+      "entrada": "src/pages/equipo/[id].astro",
+      "logica": [],
+      "contratos": [
+        "contratos/types/student.ts"
+      ],
+      "salidas": [
+        "salidas/components/students/StudentProfile.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/formacion-proyectos/",
+      "method": "GET",
+      "entrada": "src/pages/formacion-proyectos.astro",
+      "logica": [],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/training/PracticeGrid.astro",
+        "salidas/components/training/TrainingAreaGrid.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/",
+      "method": "GET",
+      "entrada": "src/pages/index.astro",
+      "logica": [],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/home/HomeRouteGrid.astro",
+        "salidas/components/sections/CompanyCallout.astro",
+        "salidas/components/sections/Hero.astro",
+        "salidas/components/sections/ImpactStrip.astro",
+        "salidas/components/sections/OpportunityGrid.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/quienes-somos/",
+      "method": "GET",
+      "entrada": "src/pages/quienes-somos.astro",
+      "logica": [],
+      "contratos": [],
+      "salidas": [
+        "salidas/components/about/AboutFinalCTA.astro",
+        "salidas/components/about/AboutIdentity.astro",
+        "salidas/components/about/AboutPrinciples.astro",
+        "salidas/components/about/AboutStory.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "path": "/sitemap.xml",
+      "method": "GET",
+      "entrada": "src/pages/sitemap.xml.ts",
+      "logica": [],
+      "contratos": [],
+      "salidas": []
+    }
+  ],
+  "contracts": [
+    {
+      "name": "about",
+      "file": "contratos/types/about.ts",
+      "used_by": [
+        "entradas/contenido/about.ts"
+      ]
+    },
+    {
+      "name": "company",
+      "file": "contratos/types/company.ts",
+      "used_by": [
+        "entradas/contenido/companies.ts"
+      ]
+    },
+    {
+      "name": "contact",
+      "file": "contratos/types/contact.ts",
+      "used_by": [
+        "entradas/contenido/contact.ts"
+      ]
+    },
+    {
+      "name": "home",
+      "file": "contratos/types/home.ts",
+      "used_by": [
+        "entradas/contenido/home.ts",
+        "salidas/components/home/HomeRouteCard.astro"
+      ]
+    },
+    {
+      "name": "navigation",
+      "file": "contratos/types/navigation.ts",
+      "used_by": [
+        "entradas/contenido/navigation.ts"
+      ]
+    },
+    {
+      "name": "opportunity",
+      "file": "contratos/types/opportunity.ts",
+      "used_by": [
+        "entradas/contenido/opportunities.ts"
+      ]
+    },
+    {
+      "name": "student",
+      "file": "contratos/types/student.ts",
+      "used_by": [
+        "entradas/contenido/students.ts",
+        "salidas/components/students/StudentCard.astro",
+        "salidas/components/students/StudentProfile.astro",
+        "src/pages/equipo/[id].astro"
+      ]
+    },
+    {
+      "name": "training",
+      "file": "contratos/types/training.ts",
+      "used_by": [
+        "entradas/contenido/training.ts",
+        "salidas/components/training/PracticeCard.astro",
+        "salidas/components/training/TrainingAreaCard.astro"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "name": "about",
+      "type": "Contrato",
+      "file": "contratos/types/about.ts",
+      "depends_on": []
+    },
+    {
+      "name": "company",
+      "type": "Contrato",
+      "file": "contratos/types/company.ts",
+      "depends_on": []
+    },
+    {
+      "name": "contact",
+      "type": "Contrato",
+      "file": "contratos/types/contact.ts",
+      "depends_on": []
+    },
+    {
+      "name": "home",
+      "type": "Contrato",
+      "file": "contratos/types/home.ts",
+      "depends_on": []
+    },
+    {
+      "name": "navigation",
+      "type": "Contrato",
+      "file": "contratos/types/navigation.ts",
+      "depends_on": []
+    },
+    {
+      "name": "opportunity",
+      "type": "Contrato",
+      "file": "contratos/types/opportunity.ts",
+      "depends_on": []
+    },
+    {
+      "name": "student",
+      "type": "Contrato",
+      "file": "contratos/types/student.ts",
+      "depends_on": []
+    },
+    {
+      "name": "training",
+      "type": "Contrato",
+      "file": "contratos/types/training.ts",
+      "depends_on": []
+    },
+    {
+      "name": "about",
+      "type": "Entrada",
+      "file": "entradas/contenido/about.ts",
+      "depends_on": [
+        "contratos/types/about.ts"
+      ]
+    },
+    {
+      "name": "companies",
+      "type": "Entrada",
+      "file": "entradas/contenido/companies.ts",
+      "depends_on": [
+        "contratos/types/company.ts",
+        "entradas/contenido/contact-channel.ts",
+        "entradas/contenido/students.ts"
+      ]
+    },
+    {
+      "name": "contact-channel",
+      "type": "Entrada",
+      "file": "entradas/contenido/contact-channel.ts",
+      "depends_on": []
+    },
+    {
+      "name": "contact",
+      "type": "Entrada",
+      "file": "entradas/contenido/contact.ts",
+      "depends_on": [
+        "contratos/types/contact.ts"
+      ]
+    },
+    {
+      "name": "home",
+      "type": "Entrada",
+      "file": "entradas/contenido/home.ts",
+      "depends_on": [
+        "contratos/types/home.ts",
+        "entradas/contenido/students.ts"
+      ]
+    },
+    {
+      "name": "navigation",
+      "type": "Entrada",
+      "file": "entradas/contenido/navigation.ts",
+      "depends_on": [
+        "contratos/types/navigation.ts"
+      ]
+    },
+    {
+      "name": "opportunities",
+      "type": "Entrada",
+      "file": "entradas/contenido/opportunities.ts",
+      "depends_on": [
+        "contratos/types/opportunity.ts"
+      ]
+    },
+    {
+      "name": "site",
+      "type": "Entrada",
+      "file": "entradas/contenido/site.ts",
+      "depends_on": []
+    },
+    {
+      "name": "students",
+      "type": "Entrada",
+      "file": "entradas/contenido/students.ts",
+      "depends_on": [
+        "contratos/types/student.ts"
+      ]
+    },
+    {
+      "name": "training",
+      "type": "Entrada",
+      "file": "entradas/contenido/training.ts",
+      "depends_on": [
+        "contratos/types/training.ts"
+      ]
+    },
+    {
+      "name": "paths",
+      "type": "Lógica",
+      "file": "logica/lib/paths.ts",
+      "depends_on": []
+    },
+    {
+      "name": "AboutFinalCTA",
+      "type": "Salida",
+      "file": "salidas/components/about/AboutFinalCTA.astro",
+      "depends_on": [
+        "logica/lib/paths.ts",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/styles/about.css"
+      ]
+    },
+    {
+      "name": "AboutIdentity",
+      "type": "Salida",
+      "file": "salidas/components/about/AboutIdentity.astro",
+      "depends_on": [
+        "entradas/contenido/students.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/brand/BrandLogo.astro",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/styles/about.css"
+      ]
+    },
+    {
+      "name": "AboutPrinciples",
+      "type": "Salida",
+      "file": "salidas/components/about/AboutPrinciples.astro",
+      "depends_on": [
+        "entradas/contenido/about.ts",
+        "salidas/styles/about.css"
+      ]
+    },
+    {
+      "name": "AboutStory",
+      "type": "Salida",
+      "file": "salidas/components/about/AboutStory.astro",
+      "depends_on": [
+        "entradas/contenido/about.ts",
+        "salidas/styles/about.css"
+      ]
+    },
+    {
+      "name": "BrandLogo",
+      "type": "Salida",
+      "file": "salidas/components/brand/BrandLogo.astro",
+      "depends_on": [
+        "logica/lib/paths.ts",
+        "salidas/styles/brand.css"
+      ]
+    },
+    {
+      "name": "CompanyFinalCTA",
+      "type": "Salida",
+      "file": "salidas/components/companies/CompanyFinalCTA.astro",
+      "depends_on": [
+        "entradas/contenido/contact-channel.ts",
+        "entradas/contenido/students.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/styles/companies.css"
+      ]
+    },
+    {
+      "name": "CompanyPath",
+      "type": "Salida",
+      "file": "salidas/components/companies/CompanyPath.astro",
+      "depends_on": [
+        "entradas/contenido/companies.ts",
+        "salidas/styles/companies.css"
+      ]
+    },
+    {
+      "name": "CompanySectorGrid",
+      "type": "Salida",
+      "file": "salidas/components/companies/CompanySectorGrid.astro",
+      "depends_on": [
+        "entradas/contenido/companies.ts",
+        "salidas/styles/companies.css"
+      ]
+    },
+    {
+      "name": "ContactActionPanel",
+      "type": "Salida",
+      "file": "salidas/components/contact/ContactActionPanel.astro",
+      "depends_on": [
+        "entradas/contenido/contact-channel.ts",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/styles/contact.css"
+      ]
+    },
+    {
+      "name": "ContactAudienceGrid",
+      "type": "Salida",
+      "file": "salidas/components/contact/ContactAudienceGrid.astro",
+      "depends_on": [
+        "entradas/contenido/contact.ts",
+        "salidas/styles/contact.css"
+      ]
+    },
+    {
+      "name": "ContactBrief",
+      "type": "Salida",
+      "file": "salidas/components/contact/ContactBrief.astro",
+      "depends_on": [
+        "entradas/contenido/contact.ts",
+        "salidas/styles/contact.css"
+      ]
+    },
+    {
+      "name": "HomeRouteCard",
+      "type": "Salida",
+      "file": "salidas/components/home/HomeRouteCard.astro",
+      "depends_on": [
+        "contratos/types/home.ts",
+        "logica/lib/paths.ts",
+        "salidas/styles/home.css"
+      ]
+    },
+    {
+      "name": "HomeRouteGrid",
+      "type": "Salida",
+      "file": "salidas/components/home/HomeRouteGrid.astro",
+      "depends_on": [
+        "entradas/contenido/home.ts",
+        "salidas/components/home/HomeRouteCard.astro"
+      ]
+    },
+    {
+      "name": "SiteFooter",
+      "type": "Salida",
+      "file": "salidas/components/layout/SiteFooter.astro",
+      "depends_on": [
+        "entradas/contenido/navigation.ts",
+        "entradas/contenido/site.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/brand/BrandLogo.astro",
+        "salidas/styles/footer.css"
+      ]
+    },
+    {
+      "name": "SiteHeader",
+      "type": "Salida",
+      "file": "salidas/components/layout/SiteHeader.astro",
+      "depends_on": [
+        "entradas/contenido/contact-channel.ts",
+        "entradas/contenido/navigation.ts",
+        "entradas/contenido/site.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/brand/BrandLogo.astro",
+        "salidas/components/navigation/MobileNavigation.astro",
+        "salidas/styles/header.css"
+      ]
+    },
+    {
+      "name": "MobileNavigation",
+      "type": "Salida",
+      "file": "salidas/components/navigation/MobileNavigation.astro",
+      "depends_on": [
+        "entradas/contenido/contact-channel.ts",
+        "entradas/contenido/navigation.ts",
+        "logica/lib/paths.ts"
+      ]
+    },
+    {
+      "name": "CompanyCallout",
+      "type": "Salida",
+      "file": "salidas/components/sections/CompanyCallout.astro",
+      "depends_on": [
+        "logica/lib/paths.ts",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/styles/company-callout.css"
+      ]
+    },
+    {
+      "name": "Hero",
+      "type": "Salida",
+      "file": "salidas/components/sections/Hero.astro",
+      "depends_on": [
+        "entradas/contenido/contact-channel.ts",
+        "entradas/contenido/students.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/brand/BrandLogo.astro",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/styles/hero.css"
+      ]
+    },
+    {
+      "name": "ImpactStrip",
+      "type": "Salida",
+      "file": "salidas/components/sections/ImpactStrip.astro",
+      "depends_on": [
+        "salidas/styles/impact.css"
+      ]
+    },
+    {
+      "name": "OpportunityGrid",
+      "type": "Salida",
+      "file": "salidas/components/sections/OpportunityGrid.astro",
+      "depends_on": [
+        "entradas/contenido/opportunities.ts",
+        "salidas/styles/opportunities.css"
+      ]
+    },
+    {
+      "name": "StudentGrid",
+      "type": "Salida",
+      "file": "salidas/components/sections/StudentGrid.astro",
+      "depends_on": [
+        "entradas/contenido/students.ts",
+        "salidas/components/students/StudentCard.astro"
+      ]
+    },
+    {
+      "name": "StudentCard",
+      "type": "Salida",
+      "file": "salidas/components/students/StudentCard.astro",
+      "depends_on": [
+        "contratos/types/student.ts",
+        "logica/lib/paths.ts",
+        "salidas/styles/students.css"
+      ]
+    },
+    {
+      "name": "StudentProfile",
+      "type": "Salida",
+      "file": "salidas/components/students/StudentProfile.astro",
+      "depends_on": [
+        "contratos/types/student.ts",
+        "logica/lib/paths.ts",
+        "salidas/styles/students.css"
+      ]
+    },
+    {
+      "name": "PracticeCard",
+      "type": "Salida",
+      "file": "salidas/components/training/PracticeCard.astro",
+      "depends_on": [
+        "contratos/types/training.ts",
+        "logica/lib/paths.ts",
+        "salidas/styles/training.css"
+      ]
+    },
+    {
+      "name": "PracticeGrid",
+      "type": "Salida",
+      "file": "salidas/components/training/PracticeGrid.astro",
+      "depends_on": [
+        "entradas/contenido/training.ts",
+        "salidas/components/training/PracticeCard.astro"
+      ]
+    },
+    {
+      "name": "TrainingAreaCard",
+      "type": "Salida",
+      "file": "salidas/components/training/TrainingAreaCard.astro",
+      "depends_on": [
+        "contratos/types/training.ts",
+        "salidas/styles/training.css"
+      ]
+    },
+    {
+      "name": "TrainingAreaGrid",
+      "type": "Salida",
+      "file": "salidas/components/training/TrainingAreaGrid.astro",
+      "depends_on": [
+        "entradas/contenido/training.ts",
+        "salidas/components/training/TrainingAreaCard.astro"
+      ]
+    },
+    {
+      "name": "ButtonLink",
+      "type": "Salida",
+      "file": "salidas/components/ui/ButtonLink.astro",
+      "depends_on": []
+    },
+    {
+      "name": "SectionHeading",
+      "type": "Salida",
+      "file": "salidas/components/ui/SectionHeading.astro",
+      "depends_on": []
+    },
+    {
+      "name": "BaseLayout",
+      "type": "Salida",
+      "file": "salidas/layouts/BaseLayout.astro",
+      "depends_on": [
+        "entradas/contenido/site.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/layout/SiteFooter.astro",
+        "salidas/components/layout/SiteHeader.astro",
+        "salidas/styles/global.css"
+      ]
+    },
+    {
+      "name": "about",
+      "type": "Salida",
+      "file": "salidas/styles/about.css",
+      "depends_on": []
+    },
+    {
+      "name": "brand",
+      "type": "Salida",
+      "file": "salidas/styles/brand.css",
+      "depends_on": []
+    },
+    {
+      "name": "companies",
+      "type": "Salida",
+      "file": "salidas/styles/companies.css",
+      "depends_on": []
+    },
+    {
+      "name": "company-callout",
+      "type": "Salida",
+      "file": "salidas/styles/company-callout.css",
+      "depends_on": []
+    },
+    {
+      "name": "contact",
+      "type": "Salida",
+      "file": "salidas/styles/contact.css",
+      "depends_on": []
+    },
+    {
+      "name": "footer",
+      "type": "Salida",
+      "file": "salidas/styles/footer.css",
+      "depends_on": []
+    },
+    {
+      "name": "global",
+      "type": "Salida",
+      "file": "salidas/styles/global.css",
+      "depends_on": []
+    },
+    {
+      "name": "header",
+      "type": "Salida",
+      "file": "salidas/styles/header.css",
+      "depends_on": []
+    },
+    {
+      "name": "hero",
+      "type": "Salida",
+      "file": "salidas/styles/hero.css",
+      "depends_on": []
+    },
+    {
+      "name": "home",
+      "type": "Salida",
+      "file": "salidas/styles/home.css",
+      "depends_on": []
+    },
+    {
+      "name": "impact",
+      "type": "Salida",
+      "file": "salidas/styles/impact.css",
+      "depends_on": []
+    },
+    {
+      "name": "opportunities",
+      "type": "Salida",
+      "file": "salidas/styles/opportunities.css",
+      "depends_on": []
+    },
+    {
+      "name": "students",
+      "type": "Salida",
+      "file": "salidas/styles/students.css",
+      "depends_on": []
+    },
+    {
+      "name": "training",
+      "type": "Salida",
+      "file": "salidas/styles/training.css",
+      "depends_on": []
+    },
+    {
+      "name": "404",
+      "type": "Entrada",
+      "file": "src/pages/404.astro",
+      "depends_on": [
+        "logica/lib/paths.ts",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "contacto",
+      "type": "Entrada",
+      "file": "src/pages/contacto.astro",
+      "depends_on": [
+        "salidas/components/contact/ContactActionPanel.astro",
+        "salidas/components/contact/ContactAudienceGrid.astro",
+        "salidas/components/contact/ContactBrief.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "empresas-oportunidades",
+      "type": "Entrada",
+      "file": "src/pages/empresas-oportunidades.astro",
+      "depends_on": [
+        "entradas/contenido/students.ts",
+        "logica/lib/paths.ts",
+        "salidas/components/companies/CompanyFinalCTA.astro",
+        "salidas/components/companies/CompanyPath.astro",
+        "salidas/components/companies/CompanySectorGrid.astro",
+        "salidas/components/sections/OpportunityGrid.astro",
+        "salidas/components/ui/ButtonLink.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "equipo",
+      "type": "Entrada",
+      "file": "src/pages/equipo.astro",
+      "depends_on": [
+        "entradas/contenido/students.ts",
+        "salidas/components/sections/StudentGrid.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "[id]",
+      "type": "Entrada",
+      "file": "src/pages/equipo/[id].astro",
+      "depends_on": [
+        "contratos/types/student.ts",
+        "entradas/contenido/students.ts",
+        "salidas/components/students/StudentProfile.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "formacion-proyectos",
+      "type": "Entrada",
+      "file": "src/pages/formacion-proyectos.astro",
+      "depends_on": [
+        "salidas/components/training/PracticeGrid.astro",
+        "salidas/components/training/TrainingAreaGrid.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "index",
+      "type": "Entrada",
+      "file": "src/pages/index.astro",
+      "depends_on": [
+        "salidas/components/home/HomeRouteGrid.astro",
+        "salidas/components/sections/CompanyCallout.astro",
+        "salidas/components/sections/Hero.astro",
+        "salidas/components/sections/ImpactStrip.astro",
+        "salidas/components/sections/OpportunityGrid.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "quienes-somos",
+      "type": "Entrada",
+      "file": "src/pages/quienes-somos.astro",
+      "depends_on": [
+        "salidas/components/about/AboutFinalCTA.astro",
+        "salidas/components/about/AboutIdentity.astro",
+        "salidas/components/about/AboutPrinciples.astro",
+        "salidas/components/about/AboutStory.astro",
+        "salidas/components/ui/SectionHeading.astro",
+        "salidas/layouts/BaseLayout.astro"
+      ]
+    },
+    {
+      "name": "sitemap.xml",
+      "type": "Entrada",
+      "file": "src/pages/sitemap.xml.ts",
+      "depends_on": [
+        "entradas/contenido/students.ts"
+      ]
+    }
+  ]
+}

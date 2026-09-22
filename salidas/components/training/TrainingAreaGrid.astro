@@ -1,0 +1,26 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/training/TrainingAreaGrid.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import TrainingAreaCard from "@components/training/TrainingAreaCard.astro";
+import { trainingAreas } from "@content/training";
+---
+
+<div class="training-area-grid">
+  {trainingAreas.map((area, index) => (
+    <TrainingAreaCard area={area} index={index} />
+  ))}
+</div>

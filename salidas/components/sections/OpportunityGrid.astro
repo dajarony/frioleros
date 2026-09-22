@@ -1,0 +1,30 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/sections/OpportunityGrid.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import { opportunities } from "@content/opportunities";
+import "@styles/opportunities.css";
+---
+
+<div class="card-grid card-grid--three">
+  {opportunities.map((item) => (
+    <article class="feature-card">
+      <span class="feature-card__index">{item.icon}</span>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+    </article>
+  ))}
+</div>

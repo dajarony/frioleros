@@ -1,0 +1,26 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/training/PracticeGrid.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import PracticeCard from "@components/training/PracticeCard.astro";
+import { practiceEvidence } from "@content/training";
+---
+
+<div class="practice-grid">
+  {practiceEvidence.map((practice) => (
+    <PracticeCard practice={practice} />
+  ))}
+</div>

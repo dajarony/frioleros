@@ -1,0 +1,31 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/ui/SectionHeading.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  text?: string;
+}
+
+const { eyebrow, title, text } = Astro.props;
+---
+
+<header class="section-heading">
+  {eyebrow && <p class="section-heading__eyebrow">{eyebrow}</p>}
+  <h2>{title}</h2>
+  {text && <p class="section-heading__text">{text}</p>}
+</header>

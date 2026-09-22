@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "strict_docblock": true,
+  "auto_update_arquitectura": true,
+  "require_change_log": true,
+  "architecture_map_guard": true,
+  "map_guard": {
+    "tracked_roots": ["src/pages", "entradas", "logica", "salidas", "contratos"],
+    "source_extensions": [".astro", ".ts", ".css"],
+    "exclude": []
+  },
+  "folders": ["entradas", "logica", "salidas", "contratos"],
+  "entry_point": "src/pages",
+  "adapter_note": "Astro requiere los puntos de entrada de rutas en src/pages."
+}

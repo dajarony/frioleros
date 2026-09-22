@@ -1,0 +1,32 @@
+---
+/*
+SUME DOCBLOCK
+
+Nombre: salidas/components/about/AboutStory.astro
+Tipo: Salida
+
+Entradas:
+- propiedades y datos de contenido
+
+Acciones:
+- compone una sección de interfaz
+
+Salidas:
+- HTML accesible para la página
+*/
+
+import { storySteps } from "@content/about";
+import "@styles/about.css";
+---
+
+<div class="about-story">
+  {storySteps.map((item) => (
+    <article class="about-story__step">
+      <span>{item.step}</span>
+      <div>
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+      </div>
+    </article>
+  ))}
+</div>
