@@ -75,22 +75,37 @@ for (const url of sitemapUrls) {
   if (!indexable.has(url)) errors.push(`Sitemap incluye una ruta no indexable: ${url}`);
 }
 
-const logo = readFileSync(join(dist, "brand", "frioleros-logo.webp"));
-if (logo.toString("ascii", 0, 4) !== "RIFF" || logo.toString("ascii", 8, 16) !== "WEBPVP8X") {
-  errors.push("Formato del logo no comprobable: se esperaba WebP VP8X");
-} else {
-  const width = logo.readUIntLE(24, 3) + 1;
-  const height = logo.readUIntLE(27, 3) + 1;
-  const manifest = JSON.parse(readFileSync(join(dist, "manifest.webmanifest"), "utf8"));
-  const icon = manifest.icons.find((item) => item.src === `${base}brand/frioleros-logo.webp`);
-  if (icon?.sizes !== `${width}x${height}`) {
-    errors.push(`Manifest: ${icon?.sizes ?? "sin icono"}; logo real: ${width}x${height}`);
+const imageSize = (file) => {
+  const image = readFileSync(file);
+  if (image.toString("ascii", 0, 4) === "RIFF" && image.toString("ascii", 8, 16) === "WEBPVP8X") {
+    return { width: image.readUIntLE(24, 3) + 1, height: image.readUIntLE(27, 3) + 1 };
   }
+  if (image.toString("hex", 0, 8) === "89504e470d0a1a0a") {
+    return { width: image.readUInt32BE(16), height: image.readUInt32BE(20) };
+  }
+  return null;
+};
+
+const logo = imageSize(join(dist, "brand", "frioleros-bear-a.png"));
+if (!logo) {
+  errors.push("Formato del símbolo no comprobable: se esperaba PNG");
+} else {
   for (const file of htmlFiles) {
     const html = readFileSync(file, "utf8");
-    if (meta(html, "property", "og:image:width") !== String(width) || meta(html, "property", "og:image:height") !== String(height)) {
+    if (meta(html, "property", "og:image:width") !== String(logo.width) || meta(html, "property", "og:image:height") !== String(logo.height)) {
       errors.push(`${relative(dist, file)}: dimensiones OpenGraph incorrectas`);
     }
+  }
+}
+
+const manifest = JSON.parse(readFileSync(join(dist, "manifest.webmanifest"), "utf8"));
+for (const expected of [192, 512]) {
+  const fileName = expected === 512 ? "frioleros-bear-a.png" : `frioleros-icon-${expected}.png`;
+  const src = `${base}brand/${fileName}`;
+  const icon = manifest.icons.find((item) => item.src === src);
+  const dimensions = imageSize(join(dist, "brand", fileName));
+  if (!dimensions || dimensions.width !== expected || dimensions.height !== expected || icon?.sizes !== `${expected}x${expected}` || icon?.type !== "image/png") {
+    errors.push(`Manifest: icono ${expected}x${expected} ausente o incoherente`);
   }
 }
 

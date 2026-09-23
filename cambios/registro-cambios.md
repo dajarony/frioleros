@@ -33,3 +33,13 @@ Este registro es append-only. Cada nueva modificación se añade al final con mo
 **Impacto:** solo documentación y material de diseño. No cambia el logo ni los activos de la web publicada.
 
 **Autor:** Codex, por encargo del usuario.
+
+## 2026-09-23 — Publicación de la identidad A para web
+
+**Archivos afectados:** `public/brand/`, `public/manifest.webmanifest`, `salidas/components/brand/BrandLogo.astro`, `salidas/styles/brand.css`, `salidas/layouts/BaseLayout.astro`, `scripts/verify-build.mjs`, `docs/brand/`, plan, auditoría y bitácora.
+
+**Motivo:** sustituir el logo anterior, ilegible a tamaño pequeño, por la dirección de oso simplificado elegida por el usuario.
+
+**Impacto:** cabecera, hero, favicon, manifiesto y tarjetas sociales usan una identidad coherente. El build valida dimensiones y el activo anterior se elimina.
+
+**Autor:** Codex, por encargo del usuario.

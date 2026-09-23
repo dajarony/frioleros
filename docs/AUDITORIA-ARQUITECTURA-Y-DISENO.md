@@ -20,7 +20,9 @@ La portada terminaba con dos secciones seguidas que enviaban a la misma ruta de 
 
 ### P2 · Logo difícil de leer a tamaño pequeño
 
-El archivo oficial actual es un WebP de 224 × 224 px que mezcla oso, herramientas, copo y palabra. En la cabecera se reduce a 54 px en escritorio y 46 px en móvil; los detalles y la palabra dentro del bitmap pierden definición. El boceto elegido por el usuario, un oso geométrico, se conserva en `docs/brand/` para evaluación. **No reemplaza la marca publicada.**
+En el momento de la auditoría, el archivo oficial era un WebP de 224 × 224 px que mezclaba oso, herramientas, copo y palabra. En la cabecera se reducía a 54 px en escritorio y 46 px en móvil; los detalles y la palabra dentro del bitmap perdían definición. El boceto elegido por el usuario se conservó primero en `docs/brand/` para evaluación, sin reemplazar aún la marca publicada.
+
+**Estado posterior:** resuelto en la fase 7. El oso A simplificado se publicó como PNG transparente de 512 px, con derivado de 192 px; el nombre es texto HTML. Se retiró el WebP anterior y el build comprueba dimensiones del símbolo, iconos del manifiesto y metadatos.
 
 ## Sanidad verificada y límites
 
@@ -32,4 +34,4 @@ El archivo oficial actual es un WebP de 224 × 224 px que mezcla oso, herramient
 
 ## Decisión
 
-Se aceptó el saneamiento local de responsabilidades y la reducción de contenido repetido. En ese corte, SUME quedó pendiente. La migración posterior pasó `npm run verify:sume`, la CI y el despliegue del PR #4. El nuevo símbolo necesita revisión visual antes de sustituir el logo existente.
+Se aceptó el saneamiento local de responsabilidades y la reducción de contenido repetido. En ese corte, SUME quedó pendiente. La migración posterior pasó `npm run verify:sume`, la CI y el despliegue del PR #4. La fase 7 sustituyó después el logo anterior por el oso A comprobado para web.
