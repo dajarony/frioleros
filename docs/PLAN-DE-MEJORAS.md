@@ -18,7 +18,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 | 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Criterios técnicos comprobados con el logo actual; original opcional pendiente |
 | 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | QA técnica automatizada y rutas comprobadas; cierre integral pendiente de contenido real |
 | 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Cerrada: guardia y despliegue verificados en PR #4 |
-| 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Oso geométrico elegido como dirección; boceto SVG pendiente de aprobación |
+| 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Dirección A elegida; referencia PNG y primer SVG disponibles para revisión, sin sustituir el logo público |
 
 ## Contrato F1 — Contacto operativo
 
@@ -147,7 +147,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** un símbolo y un nombre legibles en tamaños de 32, 48 y 224 px, coherentes en cabecera, favicon y redes.
 
-**Entradas:** dirección A (oso simplificado) elegida por el usuario y boceto en `docs/brand/`. **Estado actual:** concepto pendiente de evaluación; la web sigue usando el logo anterior.
+**Entradas:** dirección A (oso simplificado) elegida por el usuario, referencia PNG y primer trazado SVG en `docs/brand/`. **Estado actual:** concepto pendiente de evaluación a tamaño de uso; la web sigue usando el logo anterior.
 
 **Estados:** `boceto`, `final_aprobado`, `publicado`. **Acciones:** revisar símbolo y nombre juntos a tamaño de uso, ajustar variantes y sustituir los activos de la web cuando la versión final esté definida.
 
