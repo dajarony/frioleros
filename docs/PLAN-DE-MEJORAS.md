@@ -15,10 +15,10 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 | 1. Contacto operativo | P0 | Una empresa puede iniciar la conversación desde cualquier CTA | Correo oficial confirmado por el grupo | Canal adelantado y CTA condicionados; correo pendiente según el grupo |
 | 2. Equipo verificable | P1 | Perfiles reales y consentidos con información útil para empresas | Datos y autorización de cada alumno | Mensajes ajustados; faltan perfiles |
 | 3. Prácticas con pruebas | P1 | Evidencia real de trabajo y aprendizaje | Fotos y datos de prácticas confirmados | Fichas sin falsos huecos de foto; faltan evidencias |
-| 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Original del logotipo para mejorar resolución | Criterios técnicos comprobados con el logo actual; original opcional pendiente |
+| 4. Presentación y móvil | P2 | Imagen de marca nítida, lectura más directa y ausencia de desbordamiento | Identidad web de la fase 7 | Cerrada: responsive verificado y símbolo de 512 px integrado |
 | 5. SEO y comprobación final | P2 | Metadatos fieles a los archivos y recorridos completos verificados | Fases 1–4 para cierre integral | QA técnica automatizada y rutas comprobadas; cierre integral pendiente de contenido real |
 | 6. Sanidad y SUME | P1 | Responsabilidades claras y trazabilidad SUME verificable | Migración técnica independiente para cumplir SUME estricto | Cerrada: guardia y despliegue verificados en PR #4 |
-| 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Dirección A elegida; referencia PNG y primer SVG disponibles para revisión, sin sustituir el logo público |
+| 7. Identidad visual | P2 | Marca legible desde el favicon hasta el hero | Selección y aprobación del símbolo y wordmark finales | Cerrada para web: oso A integrado y verificado en cabecera, hero, iconos y metadatos |
 
 ## Contrato F1 — Contacto operativo
 
@@ -86,7 +86,7 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** la marca se lee nítida a su tamaño real y las páginas no fuerzan desplazamiento horizontal en pantallas estrechas.
 
-**Entradas:** logotipo actual de 224 × 224 px; si se aporta un original de mayor resolución, sustituirá al actual. La exploración de una identidad nueva se gestiona en la fase 7.
+**Entradas:** el logotipo anterior de 224 × 224 px se usó para la primera verificación responsive. La identidad nueva se resolvió después en la fase 7 con un símbolo de 512 px.
 
 **Estados:** escritorio y móvil; menú cerrado y abierto. El contenido editorial no cambia de veracidad según el tamaño.
 
@@ -94,9 +94,9 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Reglas y límites:** no ampliar el bitmap por encima de su resolución intrínseca; conservar el mensaje principal y los CTA; el cuerpo no debe tener un ancho mínimo superior al área disponible; reducir la altura de las cabeceras interiores para que el contenido empiece antes.
 
-**Errores y recuperación:** sin logotipo nuevo → limitar el tamaño del actual y conservar una composición equilibrada.
+**Errores y recuperación:** si un activo de marca falta o no coincide con el manifiesto, el build falla antes de publicar; se restaura el último activo verificado.
 
-**Aceptación verificable:** a 320, 390 y 1280 px `scrollWidth <= clientWidth` (salvo redondeo de 1 px); menú móvil navegable; no hay texto cortado; logo no se renderiza por encima de 224 px hasta que exista otro archivo; `check` y `build` pasan.
+**Aceptación verificable:** a 320, 390 y 1280 px `scrollWidth <= clientWidth` (salvo redondeo de 1 px); menú móvil navegable; no hay texto cortado; el logo no se renderiza por encima de su resolución intrínseca; `check` y `build` pasan.
 
 **Fuera de alcance:** rediseño completo o sustitución del oso por fotos no aportadas.
 
@@ -147,13 +147,15 @@ Los contratos siguientes usan criterios de pantalla y de comportamiento de `daja
 
 **Objetivo:** un símbolo y un nombre legibles en tamaños de 32, 48 y 224 px, coherentes en cabecera, favicon y redes.
 
-**Entradas:** dirección A (oso simplificado) elegida por el usuario, referencia PNG y primer trazado SVG en `docs/brand/`. **Estado actual:** concepto pendiente de evaluación a tamaño de uso; la web sigue usando el logo anterior.
+**Entradas:** dirección A (oso simplificado) elegida por el usuario, referencia PNG y primer trazado SVG en `docs/brand/`. **Estado actual:** versión web terminada; el símbolo PNG inspeccionado sustituye al bitmap anterior y el nombre se mantiene como texto real en la cabecera.
 
-**Estados:** `boceto`, `final_aprobado`, `publicado`. **Acciones:** revisar símbolo y nombre juntos a tamaño de uso, ajustar variantes y sustituir los activos de la web cuando la versión final esté definida.
+**Estados:** `boceto`, `final_aprobado`, `publicado`. **Acciones realizadas:** se revisó el símbolo a 32, 48 y 224 px sobre fondos claros y oscuros, se comprobó junto al nombre en la cabecera y se generaron activos de 192 y 512 px.
 
 **Reglas y recuperación:** el icono debe funcionar sin texto a 32 px y el nombre debe ser legible fuera del símbolo. Si falla la lectura o el contraste, se ajusta el vector sin cambiar el logo publicado hasta repetir la revisión.
 
-**Aceptación verificable:** el grupo aprueba un SVG final y su wordmark; se generan variantes apropiadas para fondos claros y oscuros, iconos y metadatos; se revisan visualmente los tres tamaños y pasan las comprobaciones de build y enlaces.
+**Aceptación verificable:** el grupo aprueba la marca final de uso web y su wordmark; se generan variantes apropiadas para iconos y metadatos; se revisan visualmente los tres tamaños y pasan las comprobaciones de build y enlaces. El SVG exploratorio no se declara como maestro final hasta poder revisarlo directamente.
+
+**Cierre:** el oso A se comprobó en la portada local a 320, 390 y escritorio sin desbordamiento. El PNG maestro es 512 × 512, el icono secundario 192 × 192 y los metadatos OpenGraph declaran 512 × 512. El antiguo bitmap se retiró para no dejar un activo huérfano.
 
 ## Avance verificado en esta revisión
 

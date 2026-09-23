@@ -46,7 +46,8 @@ const canonicalPath = Astro.url.pathname.replace(/\/$/, "") === homePath.replace
 const canonicalURL = Astro.site
   ? new URL(canonicalPath, Astro.site)
   : new URL(canonicalPath, Astro.url);
-const logoPath = withBase(base, "/brand/frioleros-logo.webp");
+const logoPath = withBase(base, "/brand/frioleros-bear-a.png");
+const iconPath = withBase(base, "/brand/frioleros-icon-192.png");
 const manifestPath = withBase(base, "/manifest.webmanifest");
 const socialImageURL = Astro.site
   ? new URL(logoPath, Astro.site)
@@ -64,7 +65,7 @@ const socialImageURL = Astro.site
     <meta name="color-scheme" content="dark light" />
 
     {!noindex && <link rel="canonical" href={canonicalURL} />}
-    <link rel="icon" type="image/webp" href={logoPath} />
+    <link rel="icon" type="image/png" sizes="192x192" href={iconPath} />
     <link rel="manifest" href={manifestPath} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
@@ -77,8 +78,8 @@ const socialImageURL = Astro.site
     {!noindex && <meta property="og:url" content={canonicalURL} />}
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:image:alt" content="Logo de Frioleros" />
-    <meta property="og:image:width" content="224" />
-    <meta property="og:image:height" content="224" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={pageTitle} />

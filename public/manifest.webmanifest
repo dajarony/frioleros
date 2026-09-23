@@ -8,9 +8,14 @@
   "theme_color": "#04111e",
   "icons": [
     {
-      "src": "/frioleros/brand/frioleros-logo.webp",
-      "sizes": "224x224",
-      "type": "image/webp"
+      "src": "/frioleros/brand/frioleros-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/frioleros/brand/frioleros-bear-a.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

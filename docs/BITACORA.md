@@ -79,3 +79,19 @@
 **Qué NO se tocó:** Favicons, manifiesto, OpenGraph y logo visible en el sitio.
 
 **Siguiente acción:** Evaluar el SVG y el wordmark juntos en tamaños reales antes de cerrar la identidad visual.
+
+## 2026-09-23 · medición local · Integración de la identidad A
+
+**Qué se hizo:** Se sustituyó el bitmap detallado anterior por el oso A simplificado. Se generaron un PNG maestro de 512 px y un icono de 192 px, se actualizó la cabecera, hero, favicon, manifiesto y OpenGraph, y se retiró el activo antiguo sin consumidores.
+
+**Evidencia:** El símbolo se inspeccionó a 32, 48 y 224 px en fondos oscuro y claro. En navegador se revisó junto al nombre a escritorio y a 390 y 320 px. A 390 px el símbolo se renderiza a 44 px en cabecera y 297 px en hero; a 320 px, a 44 y 243 px. En ambos casos `scrollWidth` coincide con `clientWidth`. `check`, `verify:source`, `verify:sume`, `build` y `verify` pasan; este último comprobó ocho HTML, 250 referencias y seis rutas del sitemap.
+
+**Límites declarados:** El activo oficial de pantalla es PNG. El SVG manual sigue siendo exploratorio porque el navegador bloqueó su apertura local directa; no se declara como maestro vectorial final.
+
+**Errores propios:** La primera verificación esperaba una variante concreta de WebP y rechazó el archivo válido generado. Se simplificó la entrega a PNG y se amplió la comprobación de dimensiones para PNG y los dos iconos.
+
+**Decisión:** Cerrar la fase 7 para la web con el oso A y el wordmark textual. Mantener el SVG como posible mejora futura sin afectar la marca publicada.
+
+**Qué NO se tocó:** Contenido personal, correo, perfiles y fotografías de prácticas.
+
+**Siguiente acción:** Conseguir el correo oficial y las entradas autorizadas para cerrar las fases de contenido 1–3.
